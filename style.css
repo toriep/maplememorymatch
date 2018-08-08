@@ -1,0 +1,101 @@
+body{
+    /*margin: 0;*/
+    height: 100vh;
+    width: 100vw;
+    background-color: whitesmoke;
+}
+
+#game-area {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 75%;
+    /*background: transparent;*/
+    flex-wrap: wrap;
+    /*font-size: 0px;*/
+    padding: 10px;
+}
+.cardContainer {
+    width:16.66%;
+    height: 33.33%;
+    display: flex;
+    justify-content: center;
+}
+.card img {
+    box-shadow: 5px 8px 16px 0 rgba(187,187,220, 0.3);
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    border: 2px solid white;
+    border-radius: 7px;
+}
+
+.card{
+    width: 90%;
+    height: 90%;
+    position: relative;
+}
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5em;
+    color: white;
+    display: inline-block;
+    font-family: 'Modern Antiqua', cursive;
+}
+
+header{
+    background-color: #ec971f;
+    padding: 7px 0 0 7px;
+    border-radius: 50px 20px;
+}
+
+.logo {
+    width: 20%;
+    height: 10%;
+    display: inline-block;
+    padding: 5px 0 0 5px;
+}
+
+.STATS{
+    display: flex;
+}
+
+.attempts,.accuracy,.games-played{
+    width: 33%;
+    border: 2px solid white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 40px 20px;
+    background-color: #ec971f;
+    font-family: 'Modern Antiqua', cursive;
+    display: flex;
+    justify-content: center;
+}
+
+.reset{
+    background-color: #d43f3a;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.back:hover, .front:hover {
+    cursor: pointer;
+}
+
+/*.back{*/
+    /*display: none;*/
+/*}*/
