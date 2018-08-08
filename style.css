@@ -1,7 +1,7 @@
 body{
     /*margin: 0;*/
-    height: 100vh;
-    width: 100vw;
+    height: 97vh;
+    width: 97vw;
     background-color: whitesmoke;
 }
 
@@ -14,6 +14,7 @@ body{
     flex-wrap: wrap;
     /*font-size: 0px;*/
     padding: 10px;
+    margin: auto;
 }
 .cardContainer {
     width:16.66%;
@@ -52,8 +53,9 @@ h1 {
 
 header{
     background-color: #ec971f;
-    padding: 7px 0 0 7px;
+    padding: 5px 20px;
     border-radius: 50px 20px;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -75,14 +77,14 @@ header{
     border-radius: 40px 20px;
     background-color: #ec971f;
     font-family: 'Modern Antiqua', cursive;
-    display: flex;
+    display: inline-block;
     justify-content: center;
 }
 
-.reset{a
-    background-color: #d43f3a;
+.reset{
+    /*background-color: #d43f3a;*/
     border: none;
-    color: white;
+    color: black;
     text-align: center;
     text-decoration: none;
     display: inline-block;
