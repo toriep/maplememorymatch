@@ -12,12 +12,16 @@
 
     <header>
         <img src="MapleStory.SVG.png" class="logo">
-        <h1>MEMORY MATCH GAME</h1>
+        <div class="title"><h1>MEMORY MATCH GAME</h1></div>
+        <button class="reset">NEW GAME</button>
     </header>
     <div id="game-area">
+        <!-- <p class="invisible">YOU WIN!<br>
+        The Maple Kingdom salutes you!
+        </p> -->
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="ribbon_pig_by_funnygal94.png"> </div>
+                <div class="front card1"><img src="pig.png"> </div>
                 <div class="back card1"><img src="leaf.png"></div>
             </div>
         </div>
@@ -29,7 +33,7 @@
         </div>
       <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="ribbon_pig_by_funnygal94.png"> </div>
+                <div class="front card1"><img src="pig.png"> </div>
                 <div class="back card1"><img src="leaf.png"></div>
             </div>
         </div>
@@ -89,7 +93,7 @@
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="snail.gif"> </div>
+                <div class="front card1"><img src="muhsroom.png"> </div>
                 <div class="back card1"><img src="leaf.png"></div>
             </div>
         </div>
@@ -107,7 +111,7 @@
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="snail.gif"> </div>
+                <div class="front card1"><img src="muhsroom.png"> </div>
                 <div class="back card1"><img src="leaf.png"></div>
             </div>
         </div>
@@ -128,17 +132,24 @@
         <div class="games-played">
             <div class="label">GAMES PLAYED</div>
             <div class="value"></div>
-            <p>Number of times user has clicked on cards</p>
         </div>
         <div class="attempts">
             <div class="label">ATTEMPTS</div>
             <div class="value"></div>
-            <p>Accuracy (how many times they got it right / number of total clicks for the current game)</p>
-        </div>
+               </div>
+        <div class="matches">
+            <div class="label">MATCHES</div>
+            <div class="value"></div>
+                  </div>
         <div class="accuracy">
             <div class="label">ACCURACY</div>
             <div class="value"></div>
-            <button class="reset">RESTART</button>
+        </div>
+    </div>
+    <div class="modal-content hidden">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">YOU'RE A CHAMPION! The Maple Kingdom salutes you!</h4>
         </div>
     </div>
 </body>
