@@ -1,135 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Maple Story Matching Game</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="main.js"></script>
 </head>
+
 <body>
 
     <header>
         <img src="./images/MapleStory.SVG.png" class="logo">
-        <div class="title"><h1>MEMORY MATCH</h1></div>
-        <button class="reset">Restart</button>
+        <div class="title">
+            <h1>MEMORY MATCH</h1>
+        </div>
+        <button class="reset">NEW GAME</button>
     </header>
     <div id="game-area">
-        <div class="win"><br><br>YOU WON!<br>
-        The Maple Kingdom <br>salutes you!
+        <div class="win">
+            <br>YOU WON!
+            <br> The Maple Kingdom
+            <br>salutes you!
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/pig.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
-            </div>
-        </div>
-        <div class="cardContainer">
-            <div class="card">
-                <div class="front card1"><img src="./images/ghost.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
-            </div>
-        </div>
-      <div class="cardContainer">
-            <div class="card">
-                <div class="front card1"><img src="./images/pig.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/mano.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/dragon.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/snail.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/stump.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/mano.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/dragon.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/dragon.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/slime.jpg"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/stumpy.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/stump.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/dragon.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/ghost.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/slime.jpg"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/whale.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/stumpy.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/slime.jpg"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/snail.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/zombie mushroom.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/whale.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/muhsroom.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/slime.jpg"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/horny%20mushroom.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/zombie.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/whale.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/mushroom.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/muhsroom.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/pig.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/zombie mushroom.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/whale.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
         <div class="cardContainer">
             <div class="card">
-                <div class="front card1"><img src="./images/horny%20mushroom.png"> </div>
-                <div class="back card1"><img src="./images/leaf.png"></div>
+                <div class="front card1">
+                    <img src="./images/mushroom.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
             </div>
         </div>
+        <div class="cardContainer">
+            <div class="card">
+                <div class="front card1">
+                    <img src="./images/zombie.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
+            </div>
+        </div>
+        <div class="cardContainer">
+            <div class="card">
+                <div class="front card1">
+                    <img src="./images/pig.png"> </div>
+                <div class="back card1">
+                    <img src="./images/leaf.png">
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="STATS">
+    <div class="stats">
         <div class="games-played">
             <div class="label">GAMES PLAYED</div>
             <div class="value"></div>
@@ -137,11 +199,11 @@
         <div class="attempts">
             <div class="label">ATTEMPTS</div>
             <div class="value"></div>
-               </div>
+        </div>
         <div class="matches">
             <div class="label">MATCHES</div>
             <div class="value"></div>
-                  </div>
+        </div>
         <div class="accuracy">
             <div class="label">ACCURACY</div>
             <div class="value"></div>
@@ -154,4 +216,5 @@
         </div>
     </div>
 </body>
+
 </html>

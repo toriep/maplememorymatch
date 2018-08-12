@@ -1,10 +1,32 @@
 $(document).ready(initializeApp);
 
+// var cardImages = [
+//     "./images/mano.png",
+//     "./images/dragon.png",
+//     "./images/pig.png",
+//     "./images/snail.png",
+//     "./images/slime.jpg",
+//     "./images/whale.png",
+//     "./images/mushroom.png",
+//     "./images/stumpy.png",
+//     "./images/zombie.png",
+//     "./images/mano.png",
+//     "./images/dragon.png",
+//     "./images/pig.png",
+//     "./images/snail.png",
+//     "./images/slime.jpg",
+//     "./images/whale.png",
+//     "./images/mushroom.png",
+//     "./images/stumpy.png",
+//     "./images/zombie.png",
+// ];
+
 function initializeApp() {
     $('.card').click(card_clicked);
     var reset = $('button.reset');
     reset.click(reset_stats);
     $('.win').fadeOut(0);
+    // displayCards(cardImages);
 }
 
 var first_card_clicked = null;
@@ -16,6 +38,56 @@ var attempts = 0; //incremebt by 1 every time user clicks the 2nd card
 var accuracy = 0; //matches/attempts
 var games_played = 0; //increment by 1 when the reset button is clicked
 
+{
+    /* <div class="cardContainer">
+    <div class="card">
+        <div class="front">
+            <img src="./images/snail.png"> </div>
+        <div class="back">
+            <img src="./images/leaf.png">
+        </div>
+    </div>
+    </div> */
+}
+
+// function displayCards(imageArray) {
+//     var gameArea = $('<div>', {
+//         id: 'game-area'
+//     });
+
+//     var body = $('body');
+
+//     for (var i = 0; i < imageArray.length; i++) {
+//         var cardDiv = $('<div>', {
+//             class: 'card'
+//         });
+
+//         var frontImage = $('<img>', {
+//             src: imageArray[i]
+//         });
+//         var frontDiv = $('<div>', {
+//             class: 'front'
+//         });
+//         (frontDiv).append(frontImage);
+//         (cardDiv).append(frontDiv);
+
+//         var backImage = $('<img>', {
+//             src: "./images/leaf.png"
+//         });
+//         var backDiv = $('<div>', {
+//             class: 'back'
+//         });
+//         (backDiv).append(backImage);
+//         (cardDiv).append(backDiv);
+
+//         var cardContainer = $('<div>', {
+//             class: 'cardContainer'
+//         });
+
+//         (cardContainer).append(cardDiv);
+//         (cardDiv).append(gameArea);
+//     }
+// };
 
 function card_clicked() {
     //if card clicked has class of match, function doesn't run further
@@ -51,7 +123,7 @@ function card_clicked() {
                 }, 1000);
             }
 
-        } else {//if image sources do not match
+        } else { //if image sources do not match
             console.log('2nd click. Cards DO NOT match!');
             accuracy = matches / attempts;
 
