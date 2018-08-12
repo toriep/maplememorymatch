@@ -1,33 +1,33 @@
 $(document).ready(initializeApp);
 
-// var cardImages = [
-//     "./images/mano.png",
-//     "./images/dragon.png",
-//     "./images/pig.png",
-//     "./images/snail.png",
-//     "./images/slime.jpg",
-//     "./images/whale.png",
-//     "./images/mushroom.png",
-//     "./images/stumpy.png",
-//     "./images/zombie.png",
-//     "./images/mano.png",
-//     "./images/dragon.png",
-//     "./images/pig.png",
-//     "./images/snail.png",
-//     "./images/slime.jpg",
-//     "./images/whale.png",
-//     "./images/mushroom.png",
-//     "./images/stumpy.png",
-//     "./images/zombie.png",
-// ];
+var cardImages = [
+    "./images/mano.png",
+    "./images/dragon.png",
+    "./images/pig.png",
+    "./images/snail.png",
+    "./images/slime.jpg",
+    "./images/whale.png",
+    "./images/mushroom.png",
+    "./images/stumpy.png",
+    "./images/zombie.png",
+    "./images/mano.png",
+    "./images/dragon.png",
+    "./images/pig.png",
+    "./images/snail.png",
+    "./images/slime.jpg",
+    "./images/whale.png",
+    "./images/mushroom.png",
+    "./images/stumpy.png",
+    "./images/zombie.png",
+];
 
 function initializeApp() {
+    displayCards(cardImages);
     $('.card').click(card_clicked);
     var reset = $('button.reset');
     reset.click(reset_stats);
     $('.win').fadeOut(0);
     display_stats();
-    // displayCards(cardImages);
 }
 
 var first_card_clicked = null;
@@ -39,56 +39,50 @@ var attempts = 0; //incremebt by 1 every time user clicks the 2nd card
 var accuracy = 0; //matches/attempts
 var games_played = 0; //increment by 1 when the reset button is clicked
 
-{
-    /* <div class="cardContainer">
-    <div class="card">
-        <div class="front">
-            <img src="./images/snail.png"> </div>
-        <div class="back">
-            <img src="./images/leaf.png">
-        </div>
-    </div>
-    </div> */
+function shuffleCardsArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var newIndex = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[newIndex];
+        array[newIndex] = temp;
+    }
 }
 
-// function displayCards(imageArray) {
-//     var gameArea = $('<div>', {
-//         id: 'game-area'
-//     });
+function displayCards(array) {
+    shuffleCardsArray(cardImages);
+    var gameArea = $('#game-area');
 
-//     var body = $('body');
+    for (var i = 0; i < array.length; i++) {
+        var cardDiv = $('<div>', {
+            class: 'card'
+        });
 
-//     for (var i = 0; i < imageArray.length; i++) {
-//         var cardDiv = $('<div>', {
-//             class: 'card'
-//         });
+        var frontImage = $('<img>', {
+            src: array[i]
+        });
+        var frontDiv = $('<div>', {
+            class: 'front'
+        });
+        (frontDiv).append(frontImage);
+        (cardDiv).append(frontDiv);
 
-//         var frontImage = $('<img>', {
-//             src: imageArray[i]
-//         });
-//         var frontDiv = $('<div>', {
-//             class: 'front'
-//         });
-//         (frontDiv).append(frontImage);
-//         (cardDiv).append(frontDiv);
+        var backImage = $('<img>', {
+            src: "./images/leaf.png"
+        });
+        var backDiv = $('<div>', {
+            class: 'back'
+        });
+        (backDiv).append(backImage);
+        (cardDiv).append(backDiv);
 
-//         var backImage = $('<img>', {
-//             src: "./images/leaf.png"
-//         });
-//         var backDiv = $('<div>', {
-//             class: 'back'
-//         });
-//         (backDiv).append(backImage);
-//         (cardDiv).append(backDiv);
+        var cardContainer = $('<div>', {
+            class: 'cardContainer'
+        });
 
-//         var cardContainer = $('<div>', {
-//             class: 'cardContainer'
-//         });
-
-//         (cardContainer).append(cardDiv);
-//         (cardDiv).append(gameArea);
-//     }
-// };
+        (cardContainer).append(cardDiv);
+        (gameArea).append(cardContainer);
+    }
+};
 
 function card_clicked() {
     //if card clicked has class of match, function doesn't run further
@@ -152,14 +146,14 @@ function display_stats() {
 
 function reset_stats() {
     console.log('Reset button clicked');
-    $('.win').fadeOut(0);
+    $('.win').fadeOut(0);//make the YOU WON texts go away
+    shuffleCardsArray(cardImages);//does not shuffle cards when reset right now because cards are already displayed
     accuracy = 0; //good
     matches = 0; //good
     attempts = 0; //good
     games_played += 1; //good
     display_stats();
-
     $('.back').removeClass('hidden'); //show the back cards again
-    $('.card').fadeIn(100);
+    $('.card').fadeIn(100);//makes the faded cards reappear
     $('.card').removeClass('match'); //so that when you reset, you can flip cards that were matched from previous game
 }
