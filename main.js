@@ -17,13 +17,15 @@ var games_played = 0;//increment by 1 when the reset button is clicked
 
 
 function card_clicked(){
+    //if card clicked has class of match, function doesn't run further
     if($(event.currentTarget).hasClass('match')){
         return;
     }
+    //else, find element with class of back and add class hidden
     $(event.currentTarget).find('.back').addClass('hidden');
-    if(first_card_clicked===null){
+    if(first_card_clicked===null){//first card clicked
         first_card_clicked=$(event.currentTarget);
-         } else {
+         } else {//2nd card clicked
             attempts+=1;
             if(first_card_clicked[0] === event.currentTarget){
             return;
@@ -34,10 +36,11 @@ function card_clicked(){
             console.log('it\'s a match!');
             first_card_clicked.addClass('match');
             second_card_clicked.addClass('match');
-            first_card_clicked.fadeOut(1000);
-            second_card_clicked.fadeOut(1000);
+            // first_card_clicked.fadeOut(1000);
+            // second_card_clicked.fadeOut(1000);
             match_counter += 1;
             matches++;
+            accuracy = matches/attempts;
             // attempts+=1;
             first_card_clicked = null;
             second_card_clicked = null;
@@ -46,7 +49,8 @@ function card_clicked(){
             }
 
         } else{
-            console.log('2nd click. It\'s a mismatch!');
+            console.log('2nd click. Cards DO NOT match!');
+            accuracy = matches/attempts;
 
             $('.card').off();
             setTimeout(function(){
@@ -54,13 +58,12 @@ function card_clicked(){
                 $(second_card_clicked).find(".back").removeClass('hidden');
                 first_card_clicked=null;
                 second_card_clicked=null;
-                $('.card').click(card_clicked);
+                $('.card').click(card_clicked);//What does this line do?
                 $('.card').on();
             }, 400);
         }
+        accuracy = Math.round(accuracy*100) + "%";
     }
-    accuracy = matches/attempts;
-    accuracy = Math.round(accuracy*100) + "%";
     display_stats();
 }
 
@@ -80,6 +83,7 @@ function reset_stats(){
     display_stats();
 
     $('.back').removeClass('hidden');//good
+    $('.card').removeClass('match');
 }
 
 
