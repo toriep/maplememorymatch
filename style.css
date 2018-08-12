@@ -8,7 +8,7 @@ body{
 #game-area {
     display: flex;
     justify-content: center;
-    width: 80%;
+    width: 75%;
     height: 70%;
     flex-wrap: wrap;
     padding: 10px;
@@ -65,7 +65,7 @@ header{
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
-    width: 80%;
+    width: 75%;
     margin: auto;
 }
 
@@ -100,7 +100,6 @@ h1 {
     font-size: 1.5em;
     margin: 18px 20px;
     cursor: pointer;
-    border: 5px solid white;
     border-radius: 60px;
     padding: 15px;
     background-color: #159F6B;
@@ -109,24 +108,23 @@ h1 {
 .reset:hover {
     /*box-shadow: 5px 8px 16px 0 #00653F inset;*/
     /*box-shadow: 16px 5px 8px 0 #00653F inset;*/
-    box-shadow: 0px 10px 20px #8d570c;
-    color: #fff;
+    box-shadow: 0px 10px 20px #2983aa;
     transform: translateY(-4px);
 }
 
 .stats{
     display: flex;
-    width: 80%;
+    width: 75%;
     justify-content: center;
     margin: auto;
 }
 
 .attempts,.accuracy,.matches,.games-played{
     width: 33%;
-    border: 2px solid white;
+    border: 1.5px solid white;
     text-align: center;
     padding: 15px;
-    border-radius: 40px 20px;
+    border-radius: 20px 20px;
     /* background-color: #ec971f; */
     background-color: #f66242;
     font-family: 'Modern Antiqua', cursive;

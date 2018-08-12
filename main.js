@@ -26,6 +26,7 @@ function initializeApp() {
     var reset = $('button.reset');
     reset.click(reset_stats);
     $('.win').fadeOut(0);
+    display_stats();
     // displayCards(cardImages);
 }
 
