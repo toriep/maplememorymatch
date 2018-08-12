@@ -146,14 +146,14 @@ function display_stats() {
 
 function reset_stats() {
     console.log('Reset button clicked');
-    $('.win').fadeOut(0);//make the YOU WON texts go away
-    shuffleCardsArray(cardImages);//does not shuffle cards when reset right now because cards are already displayed
+    $('.win').fadeOut(0); //make the YOU WON texts go away
+    shuffleCardsArray(cardImages); //does not shuffle cards when reset right now because cards are already displayed
     accuracy = 0; //good
     matches = 0; //good
     attempts = 0; //good
     games_played += 1; //good
     display_stats();
     $('.back').removeClass('hidden'); //show the back cards again
-    $('.card').fadeIn(100);//makes the faded cards reappear
+    $('.card').fadeIn(100); //makes the faded cards reappear
     $('.card').removeClass('match'); //so that when you reset, you can flip cards that were matched from previous game
 }

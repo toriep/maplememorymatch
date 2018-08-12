@@ -1,4 +1,4 @@
-body{
+body {
     height: 95vh;
     width: 97vw;
     background: url(./images/background.jpg);
@@ -13,10 +13,9 @@ body{
     flex-wrap: wrap;
     padding: 10px;
     margin: auto;
-
 }
 
-.win{
+.win {
     position: absolute;
     font-size: 4em;
     font-family: 'Jua', sans-serif;
@@ -24,18 +23,19 @@ body{
 }
 
 .cardContainer {
-    width:16.66%;
+    width: 16.66%;
     height: 33.33%;
     display: flex;
     justify-content: center;
 }
+
 .card img {
     width: 100%;
     height: 100%;
     min-height: 100%;
 }
 
-.card{
+.card {
     width: 90%;
     height: 90%;
     position: relative;
@@ -48,7 +48,7 @@ body{
 }
 
 .back {
-    box-shadow: 5px 8px 16px 0 rgba(187,187,220, 0.3);
+    box-shadow: 5px 8px 16px 0 rgba(187, 187, 220, 0.3);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -57,7 +57,7 @@ body{
     border-radius: 10px;
 }
 
-header{
+header {
     /* background-color: #ec971f; */
     /* background-color: #FFB15A; */
     padding: 5px 20px;
@@ -83,7 +83,7 @@ h1 {
     font-family: 'Modern Antiqua', cursive;
 }
 
-.title{
+.title {
     /* background-color: #ec971f; */
     background-color: #f66242;
     padding: 5px 20px;
@@ -94,7 +94,7 @@ h1 {
     border: 5px solid white;
 }
 
-.reset{
+.reset {
     font-family: 'Modern Antiqua', cursive;
     color: white;
     font-size: 1.5em;
@@ -112,14 +112,17 @@ h1 {
     transform: translateY(-4px);
 }
 
-.stats{
+.stats {
     display: flex;
     width: 75%;
     justify-content: center;
     margin: auto;
 }
 
-.attempts,.accuracy,.matches,.games-played{
+.attempts,
+.accuracy,
+.matches,
+.games-played {
     width: 33%;
     border: 1.5px solid white;
     text-align: center;
@@ -132,7 +135,7 @@ h1 {
     justify-content: center;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
