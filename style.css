@@ -1,8 +1,7 @@
 body{
-    /*margin: 0;*/
-    height: 97vh;
+    height: 95vh;
     width: 97vw;
-    background: url(background.jpg);
+    background: url(./images/background.jpg);
     background-size: cover;
 }
 
@@ -10,12 +9,20 @@ body{
     display: flex;
     justify-content: center;
     width: 80%;
-    height: 75%;
+    height: 70%;
     flex-wrap: wrap;
     padding: 10px;
     margin: auto;
 
 }
+
+.win{
+    position: absolute;
+    font-size: 4em;
+    font-family: 'Modern Antiqua', cursive;
+    text-align: center;
+}
+
 .cardContainer {
     width:16.66%;
     height: 33.33%;
@@ -58,6 +65,8 @@ header{
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
+    width: 80%;
+    margin: auto;
 }
 
 .logo {
@@ -89,9 +98,6 @@ h1 {
     /* font-family: 'Modern Antiqua', cursive; */
     font-family: 'Open Sans', sans-serif;
     color: white;
-    text-align: center;
-    display: flex;
-    justify-content: flex-end;
     font-size: 2em;
     margin: 18px 20px;
     cursor: pointer;
@@ -111,6 +117,9 @@ h1 {
 
 .STATS{
     display: flex;
+    width: 80%;
+    justify-content: center;
+    margin: auto;
 }
 
 .attempts,.accuracy,.matches,.games-played{

@@ -4,6 +4,7 @@ function initializeApp() {
     $('.card').click(card_clicked);
     var reset = $('button.reset');
     reset.click(reset_stats);
+    $('.win').fadeOut(0);
 }
 
 var first_card_clicked = null;
@@ -12,7 +13,7 @@ var total_possible_matches = 9;
 var match_counter = 0;
 var matches = 0; //increment by 1 every time the application finds a match
 var attempts = 0; //incremebt by 1 every time user clicks the 2nd card
-var accuracy = ""; //matches/attempts
+var accuracy = 0; //matches/attempts
 var games_played = 0; //increment by 1 when the reset button is clicked
 
 
@@ -45,6 +46,9 @@ function card_clicked() {
             second_card_clicked = null;
             if (match_counter === total_possible_matches) {
                 console.log('YOU WON!!!');
+                setTimeout(function () {
+                    $('.win').fadeIn(1000);
+                }, 1000);
             }
 
         } else {//if image sources do not match
@@ -75,6 +79,7 @@ function display_stats() {
 
 function reset_stats() {
     console.log('Reset button clicked');
+    $('.win').fadeOut(0);
     accuracy = 0; //good
     matches = 0; //good
     attempts = 0; //good
