@@ -27,17 +27,17 @@ function card_clicked(){
         first_card_clicked=$(event.currentTarget);
          } else {//2nd card clicked
             attempts+=1;
-            if(first_card_clicked[0] === event.currentTarget){
+            if(first_card_clicked[0] === event.currentTarget){//what does this line mean exactly?
             return;
         }
         second_card_clicked=$(event.currentTarget);
-
+        //If second card's image source is the same as first's card image source
         if(first_card_clicked.find('.front img').attr('src')===second_card_clicked.find('.front img').attr('src')){
             console.log('it\'s a match!');
             first_card_clicked.addClass('match');
             second_card_clicked.addClass('match');
-            // first_card_clicked.fadeOut(1000);
-            // second_card_clicked.fadeOut(1000);
+            first_card_clicked.fadeOut(1000);
+            second_card_clicked.fadeOut(1000);
             match_counter += 1;
             matches++;
             accuracy = matches/attempts;
@@ -82,8 +82,9 @@ function reset_stats(){
     games_played+=1;//good
     display_stats();
 
-    $('.back').removeClass('hidden');//good
-    $('.card').removeClass('match');
+    $('.back').removeClass('hidden');//show the back cards again
+    $('.card').fadeIn(100);
+    $('.card').removeClass('match');//so that when you reset, you can flip cards that were matched from previous game
 }
 
 
