@@ -26,8 +26,11 @@ function initializeApp() {
     $('.card').click(card_clicked);
     var reset = $('button.reset');
     reset.click(reset_stats);
-    $('.win').fadeOut(0);
-    display_stats();
+    $('.win').fadeOut(0);//fades out the YOU WON message
+    display_stats();//display stats so that stats boxes do not change size when the user starts playing
+    $('.logo').click(function() {//reloads the page when a user clicks on the MapleStory logo
+        location.reload(true);
+    });
 }
 
 var first_card_clicked = null;
