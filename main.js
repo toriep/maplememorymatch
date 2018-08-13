@@ -105,6 +105,8 @@ function card_clicked() {
         //If second card's image source is the same as first's card image source
         if (first_card_clicked.find('.front img').attr('src') === second_card_clicked.find('.front img').attr('src')) {
             console.log('it\'s a match!');
+            var audio = new Audio('sound.flac');
+            audio.play();
             first_card_clicked.addClass('match');
             second_card_clicked.addClass('match');
             first_card_clicked.fadeOut(1000);
