@@ -132,6 +132,8 @@ function card_clicked() {
             second_card_clicked = null;
             if (match_counter === total_possible_matches) {
                 console.log('YOU WON!!!');
+                var win = new Audio('win.mp3');
+                win.play();
                 setTimeout(function () {
                     $('.win').fadeIn(1000);
                 }, 1000);
