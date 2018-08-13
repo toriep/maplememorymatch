@@ -69,6 +69,31 @@ header {
     margin: auto;
 }
 
+.sound{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    right: 2%;
+    top: 2%;
+    /* position: relative; */
+}
+.sound * {
+    width: 40px;
+    height: 40px;
+}
+
+/* .play{
+    position: absolute;
+}
+
+.pause{
+    position: absolute;
+} */
+
+.music:hover{
+    cursor: pointer;
+}
+
 .logo {
     width: 25%;
     height: 10%;

@@ -22,16 +22,28 @@ var cardImages = [
 ];
 
 function initializeApp() {
+    $('.play').click(playBackgroundMusic);
+    $('.pause').click(pauseBackgroundMusic);
     displayCards(cardImages);
     $('.card').click(card_clicked);
     var reset = $('button.reset');
     reset.click(reset_stats);
-    $('.win').fadeOut(0);//fades out the YOU WON message
-    display_stats();//display stats so that stats boxes do not change size when the user starts playing
-    $('.logo').click(function() {//reloads the page when a user clicks on the MapleStory logo
+    $('.win').fadeOut(0); //fades out the YOU WON message
+    display_stats(); //display stats so that stats boxes do not change size when the user starts playing
+    $('.logo').click(function () { //reloads the page when a user clicks on the MapleStory logo
         location.reload(true);
     });
 }
+
+var backgroundMusic = new Audio('theme.mp3');
+
+function playBackgroundMusic() {
+    backgroundMusic.play();
+};
+
+function pauseBackgroundMusic() {
+    backgroundMusic.pause();
+};
 
 var first_card_clicked = null;
 var second_card_clicked = null;
@@ -88,6 +100,7 @@ function displayCards(array) {
 };
 
 function card_clicked() {
+    var clickSound = new Audio('click.mp3');
     //if card clicked has class of match, function doesn't run further
     if ($(event.currentTarget).hasClass('match')) {
         return;
@@ -96,6 +109,7 @@ function card_clicked() {
     $(event.currentTarget).find('.back').addClass('hidden');
     if (first_card_clicked === null) { //first card clicked
         first_card_clicked = $(event.currentTarget);
+        clickSound.play();
     } else { //2nd card clicked
         attempts += 1;
         if (first_card_clicked[0] === event.currentTarget) { //what does this line mean exactly?
@@ -124,6 +138,7 @@ function card_clicked() {
             }
 
         } else { //if image sources do not match
+            clickSound.play();
             console.log('2nd click. Cards DO NOT match!');
             accuracy = matches / attempts;
 
@@ -135,7 +150,7 @@ function card_clicked() {
                 second_card_clicked = null;
                 $('.card').click(card_clicked); //What does this line do?
                 $('.card').on();
-            }, 400);
+            }, 700);
         }
         accuracy = Math.round(accuracy * 100) + "%";
     }
