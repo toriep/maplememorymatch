@@ -3,6 +3,7 @@ body {
     width: 97vw;
     background: url(./images/background.jpg);
     background-size: cover;
+    background-attachment: fixed;
 }
 
 #game-area {
