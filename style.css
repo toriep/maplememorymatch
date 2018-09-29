@@ -68,6 +68,7 @@ header {
     justify-content: space-around;
     width: 75%;
     margin: auto;
+    position: relative;
 }
 
 .sound{
@@ -100,6 +101,8 @@ header {
     height: 10%;
     display: inline-block;
     padding: 5px 0 0 5px;
+    position: relative;
+    right: 3%;
 }
 
 .logo:hover{
@@ -117,11 +120,12 @@ h1 {
     /* background-color: #ec971f; */
     background-color: #f66242;
     padding: 5px 20px;
-    border-radius: 50px 20px;
+    border-radius: 50px 50px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
     border: 5px solid white;
+    position: relative;
 }
 
 .reset {
@@ -134,6 +138,8 @@ h1 {
     padding: 15px;
     background-color: #159F6B;
     box-shadow: 5px 5px 3px 0 rgba(39, 72, 77, 0.6);
+    position: relative;
+    left: 5%;
 }
 
 .reset:hover {
@@ -143,27 +149,21 @@ h1 {
     transform: translateY(-4px);
 }
 
-.stats {
+.stats-container {
     display: flex;
     width: 75%;
-    justify-content: center;
+    justify-content: space-around;
     margin: auto;
+    border: 1.5px solid white;
+    background-color: #f66242;
+    border-radius: 20px 20px;
+    padding: 15px 0;
 }
 
-.attempts,
-.accuracy,
-.matches,
-.games-played {
-    width: 33%;
-    border: 1.5px solid white;
-    text-align: center;
-    padding: 15px;
-    border-radius: 20px 20px;
-    /* background-color: #ec971f; */
-    background-color: #f66242;
-    font-family: 'Modern Antiqua', cursive;
-    display: inline-block;
-    justify-content: center;
+.stats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hidden {

@@ -64,6 +64,7 @@ function shuffleCardsArray(array) {
 }
 
 function displayCards(array) {
+    $('#game-area').empty();
     shuffleCardsArray(cardImages);
     var gameArea = $('#game-area');
 
@@ -71,15 +72,14 @@ function displayCards(array) {
         var cardDiv = $('<div>', {
             class: 'card'
         });
-
         var frontImage = $('<img>', {
             src: array[i]
         });
         var frontDiv = $('<div>', {
             class: 'front'
         });
-        (frontDiv).append(frontImage);
-        (cardDiv).append(frontDiv);
+        frontDiv.append(frontImage);
+        cardDiv.append(frontDiv);
 
         var backImage = $('<img>', {
             src: "./images/leaf.png"
@@ -87,15 +87,15 @@ function displayCards(array) {
         var backDiv = $('<div>', {
             class: 'back'
         });
-        (backDiv).append(backImage);
-        (cardDiv).append(backDiv);
+        backDiv.append(backImage);
+        cardDiv.append(backDiv);
 
         var cardContainer = $('<div>', {
             class: 'cardContainer'
         });
 
-        (cardContainer).append(cardDiv);
-        (gameArea).append(cardContainer);
+        cardContainer.append(cardDiv);
+        gameArea.append(cardContainer);
     }
 };
 
@@ -135,25 +135,21 @@ function card_clicked() {
                 setTimeout(function () {
                     var win = new Audio('win.mp3');
                     win.play();
-                }, 1000);
-                setTimeout(function () {
                     $('.win').fadeIn(1000);
                 }, 1000);
             }
 
         } else { //if image sources do not match
             clickSound.play();
-            console.log('2nd click. Cards DO NOT match!');
             accuracy = matches / attempts;
 
-            $('.card').off();
+            $('.card').off('click',card_clicked);
             setTimeout(function () {
                 $(first_card_clicked).find(".back").removeClass('hidden');
                 $(second_card_clicked).find(".back").removeClass('hidden');
                 first_card_clicked = null;
                 second_card_clicked = null;
                 $('.card').click(card_clicked); //re-attaches clickhandler to .card
-                $('.card').on();
             }, 700);
         }
         accuracy = Math.round(accuracy * 100) + "%";
@@ -169,14 +165,12 @@ function display_stats() {
 }
 
 function reset_stats() {
-    console.log('Reset button clicked');
     $('.win').fadeOut(0); //make the YOU WON texts go away
     accuracy = 0; //good
     matches = 0; //good
     attempts = 0; //good
     games_played += 1; //good
     display_stats();
-    $('#game-area').empty();
     displayCards(cardImages);
     $('.card').click(card_clicked);
 }
