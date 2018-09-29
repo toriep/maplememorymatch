@@ -6,6 +6,11 @@ body {
     background-attachment: fixed;
 }
 
+.container{
+    height: 100%;
+    width: 100%;
+}
+
 #game-area {
     display: flex;
     justify-content: center;
@@ -59,8 +64,6 @@ body {
 }
 
 header {
-    /* background-color: #ec971f; */
-    /* background-color: #FFB15A; */
     padding: 5px 20px;
     border-radius: 50px 20px;
     box-sizing: border-box;
@@ -83,14 +86,6 @@ header {
     width: 40px;
     height: 40px;
 }
-
-/* .play{
-    position: absolute;
-}
-
-.pause{
-    position: absolute;
-} */
 
 .music:hover{
     cursor: pointer;
@@ -180,3 +175,122 @@ h1 {
     box-shadow: 0 12px 6px 0px rgb(148, 148, 184, 0.9);
     transform: translateY(-5px);
 }
+
+
+@media (max-width: 950px){
+    #game-area {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        height: 70%;
+        flex-wrap: wrap;
+        padding: 10px;
+        margin: auto;
+    }
+
+    .cardContainer {
+        width: 16.6666%;
+        height: 25.33%;
+        display: flex;
+        justify-content: center;
+    }
+
+    header {
+        padding: 5px 20px;
+        border-radius: 50px 20px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
+        width: 90%;
+        margin: auto;
+        position: relative;
+    }
+
+    .logo {
+        width: 25%;
+        height: 10%;
+        display: inline-block;
+        padding: 5px 0 0 5px;
+        position: relative;
+        right: 3%;
+    }
+
+    h1 {
+        font-size: 2em;
+        color: white;
+        display: inline-block;
+        font-family: 'Modern Antiqua', cursive;
+    }
+    
+    .title {
+        background-color: #f66242;
+        border-radius: 50px 50px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
+        border: 5px solid white;
+        position: relative;
+    }
+    
+    .reset {
+        font-family: 'Modern Antiqua', cursive;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        background-color: #159F6B;
+        box-shadow: 5px 5px 3px 0 rgba(39, 72, 77, 0.6);
+    }
+
+}
+
+
+@media (max-width: 500px){
+    #game-area {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 70%;
+        flex-wrap: wrap;
+        padding: 10px;
+        margin: auto;
+    }
+
+    .cardContainer {
+        width: 33.333%;
+        height: 25.33%;
+        display: flex;
+        justify-content: center;
+    }
+    .logo {
+        width: 25%;
+        height: 10%;
+        display: inline-block;
+        padding: 5px 0 0 5px;
+        position: relative;
+        right: 3%;
+    }
+
+    h1 {
+        font-size: 2em;
+        color: white;
+        display: inline-block;
+        font-family: 'Modern Antiqua', cursive;
+    }
+   
+    .title {
+        display: none;
+    }
+    header{
+        width: 100%;
+    }
+
+    .stats-container{
+        display: none;
+    }
+    .reset{
+        position: relative;
+        right: 10%;
+    }
+}
+
+
