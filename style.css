@@ -1,9 +1,11 @@
 body {
-    height: 95vh;
-    width: 97vw;
+    height: 100vh;
     background: url(./images/background.jpg);
     background-size: cover;
     background-attachment: fixed;
+    overflow: hidden;
+    background-repeat:no-repeat;
+    background-position:center; /* white space before snapping */
 }
 
 .container{
@@ -19,6 +21,9 @@ body {
     flex-wrap: wrap;
     padding: 10px;
     margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .win {
@@ -59,7 +64,6 @@ body {
     width: 100%;
     height: 100%;
     background-color: white;
-    /* border: 1px solid black; */
     border-radius: 10px;
 }
 
@@ -80,7 +84,6 @@ header {
     position: fixed;
     right: 2%;
     top: 2%;
-    /* position: relative; */
 }
 .sound * {
     width: 40px;
@@ -109,37 +112,37 @@ h1 {
     color: white;
     display: inline-block;
     font-family: 'Modern Antiqua', cursive;
+    margin: 0.4em 0.7em;
 }
 
 .title {
-    /* background-color: #ec971f; */
     background-color: #f66242;
     padding: 5px 20px;
     border-radius: 50px 50px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
-    border: 5px solid white;
+    border: 4px solid white;
     position: relative;
+    white-space: nowrap;
 }
 
 .reset {
     font-family: 'Modern Antiqua', cursive;
     color: white;
-    font-size: 1.5em;
-    margin: 18px 20px;
+    font-size: 1.25em;
     cursor: pointer;
     border-radius: 60px;
-    padding: 15px;
     background-color: #159F6B;
     box-shadow: 5px 5px 3px 0 rgba(39, 72, 77, 0.6);
-    position: relative;
+    /* position: relative;
     left: 5%;
+    margin: 18px 20px; */
+    white-space: nowrap;
+    padding: 0.5em;
 }
 
 .reset:hover {
-    /*box-shadow: 5px 8px 16px 0 #00653F inset;*/
-    /*box-shadow: 16px 5px 8px 0 #00653F inset;*/
     box-shadow: 5px 5px 16px 0 rgba(39, 72, 77, 0.8);
     transform: translateY(-4px);
 }
@@ -153,6 +156,8 @@ h1 {
     background-color: #f66242;
     border-radius: 20px 20px;
     padding: 15px 0;
+    position: relative;
+    bottom: -72vh;
 }
 
 .stats{
@@ -171,7 +176,6 @@ h1 {
 }
 
 .back:hover {
-    /* box-shadow: 5px 5px 10px 7px rgb(148, 148, 184); */
     box-shadow: 0 12px 6px 0px rgb(148, 148, 184, 0.9);
     transform: translateY(-5px);
 }
@@ -181,13 +185,18 @@ h1 {
     #game-area {
         display: flex;
         justify-content: center;
-        width: 90%;
+        width: 95%;
         height: 70%;
         flex-wrap: wrap;
         padding: 10px;
         margin: auto;
+        bottom: 5%;
     }
-
+    .stats-container {
+        width: 95%;
+        position: relative;
+        bottom: -77vh;
+    }
     .cardContainer {
         width: 16.6666%;
         height: 25.33%;
@@ -196,23 +205,21 @@ h1 {
     }
 
     header {
-        padding: 5px 20px;
-        border-radius: 50px 20px;
-        box-sizing: border-box;
         display: flex;
         justify-content: space-around;
         width: 90%;
         margin: auto;
         position: relative;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .logo {
         width: 25%;
         height: 10%;
-        display: inline-block;
-        padding: 5px 0 0 5px;
         position: relative;
-        right: 3%;
+        right: 14%;
     }
 
     h1 {
@@ -221,26 +228,35 @@ h1 {
         display: inline-block;
         font-family: 'Modern Antiqua', cursive;
     }
-    
-    .title {
-        background-color: #f66242;
-        border-radius: 50px 50px;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-around;
-        border: 5px solid white;
-        position: relative;
+    .music {
+        width: 25px;
+        height: 25px;
     }
-    
     .reset {
         font-family: 'Modern Antiqua', cursive;
         color: white;
-        font-size: 1em;
+        font-size: 0.7em;
         cursor: pointer;
         background-color: #159F6B;
         box-shadow: 5px 5px 3px 0 rgba(39, 72, 77, 0.6);
+        padding: 0.7em;
     }
+    .title{
+        font-size: 0.95em;
+        border: 2px solid white;
+    }
+    .stats{
+        font-size: 1em;
+    }
+}
 
+@media (max-width: 700px){
+    .stats{
+        font-size: 0.8em;
+    }
+    .stats-container {
+        bottom: -80vh;
+    }
 }
 
 
@@ -249,23 +265,20 @@ h1 {
         display: flex;
         justify-content: center;
         width: 100%;
-        height: 70%;
+        height: 65%;
         flex-wrap: wrap;
         padding: 10px;
         margin: auto;
+        top: -10%;
     }
 
     .cardContainer {
-        width: 33.333%;
-        height: 25.33%;
+        width: 31%;
+        height: 21%;
         display: flex;
         justify-content: center;
     }
     .logo {
-        width: 25%;
-        height: 10%;
-        display: inline-block;
-        padding: 5px 0 0 5px;
         position: relative;
         right: 3%;
     }
@@ -282,14 +295,20 @@ h1 {
     }
     header{
         width: 100%;
+        top: 0;
     }
 
     .stats-container{
-        display: none;
+        font-size: 0.8em;
+        top: 84vh;
     }
     .reset{
         position: relative;
         right: 10%;
+    }
+    .music {
+        width: 25px;
+        height: 25px;
     }
 }
 
