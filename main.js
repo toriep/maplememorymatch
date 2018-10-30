@@ -34,10 +34,13 @@ const backgroundMusic = new Audio('theme.mp3');
 const clickSound = new Audio('sound.wav');
 const audio = new Audio('sound.flac');
 const win = new Audio('win.mp3');
+var soundOn = true;
 
 function initializeApp() {
-    $('.play').click(playBackgroundMusic);
-    $('.pause').click(pauseBackgroundMusic);
+    $('.music_play').click(playBackgroundMusic);
+    $('.music_pause').click(pauseBackgroundMusic);
+    $('.sound_play').click(enableSoundEffects);
+    $('.sound_pause').click(disableSoundEffects);
     displayCards(cardImages);
     $('.card').click(card_clicked);
     var reset = $('button.reset');
@@ -84,7 +87,7 @@ function card_clicked() {
     $(event.currentTarget).find('.back').addClass('hidden');
     if (first_card_clicked === null) { //first card clicked
         first_card_clicked = $(event.currentTarget);
-        clickSound.play();
+        soundOn ? clickSound.play() : null;
     } else { //if first_card_clicked is not null, this is a the second card
         attempts += 1;
         if (first_card_clicked[0] === event.currentTarget) {//if user clicks on a front card twice
@@ -97,7 +100,7 @@ function card_clicked() {
             if (match_counter === total_possible_matches) {
                 showWinModal();
                 setTimeout(function () {
-                    win.play();
+                    soundOn ? win.play() : null;
                     // $('.win').fadeIn(1000);
                 }, 1000);
             }
@@ -110,14 +113,14 @@ function card_clicked() {
 }
 
 function mismatchedCards(){
-    clickSound.play();
+    soundOn ? clickSound.play() : null;
     accuracy = matches / attempts;
     $('.card').off('click',card_clicked);
     setTimeout(timeOut, 700);
 }
 
 function matchedCards(firstCard, secondCard){
-    audio.play();
+    soundOn ? audio.play() : null;
     firstCard.addClass('match');
     secondCard.addClass('match');
     firstCard.fadeOut(1000);
@@ -174,4 +177,12 @@ function playBackgroundMusic() {
 
 function pauseBackgroundMusic() {
     backgroundMusic.pause();
+};
+
+function disableSoundEffects(){
+    soundOn = false;
+};
+
+function enableSoundEffects(){
+    soundOn = true;
 };
