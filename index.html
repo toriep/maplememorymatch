@@ -25,11 +25,6 @@
             </div>
         </header>
         <div id="game-area">
-            <div class="win">
-                <br>YOU WON!
-                <br> The Maple Kingdom
-                <br>salutes you!
-            </div>
         </div>
         <div class="stats-container">
             <div class="stats games-played">
@@ -53,10 +48,13 @@
             </div>
         </div>
     </div>
-    <div class="modal-content hidden">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">YOU'RE A CHAMPION! The Maple Kingdom salutes you!</h4>
+    <div id="winModal" class="modal">
+        <div class="modal-content win">
+            <span class="close">&times;</span>
+            YOU WON!
+            <br> The Maple Kingdom
+            <br>salutes you!
+            <img src="./images/celeb.gif" alt="" class="celeb">
         </div>
     </div>
 </body>

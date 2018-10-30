@@ -106,6 +106,7 @@ function card_clicked() {
         if (first_card_clicked.find('.front img').attr('src') === second_card_clicked.find('.front img').attr('src')) {
             matchedCards(first_card_clicked,second_card_clicked);
             if (match_counter === total_possible_matches) {
+                showWinModal();
                 setTimeout(function () {
                     win.play();
                     $('.win').fadeIn(1000);
@@ -163,6 +164,21 @@ function reset_stats() {
     display_stats();
     displayCards(cardImages);
     $('.card').click(card_clicked);
+}
+
+function showWinModal(){
+    console.log('Win Modal');
+    var modal = document.getElementById('winModal')
+    var span = document.getElementsByClassName("close")[0];
+    modal.style.display = "block";//display modal
+    span.onclick = function() {//exit modal when click on x
+          modal.style.display = "none";
+    }
+    window.onclick = function(event) {//exit modal when click anywhere outside of modal
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+    }  
 }
 
 function playBackgroundMusic() {

@@ -181,7 +181,50 @@ button:focus {
     text-align: center;
 }
 
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
 
+.modal-content {
+    border-radius: 20px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 50px;
+    border: 1px solid #888;
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.celeb{
+    width: 50%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 @media (max-width: 950px){
     #game-area {
@@ -258,6 +301,9 @@ button:focus {
     .logo {
         position: relative;
         right: 3%;
+    }
+    .modal-content {
+        width: 100%;
     }
    
     .title {
