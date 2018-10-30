@@ -21,8 +21,19 @@ var cardImages = [
     "./images/zombie.png",
 ];
 
+var first_card_clicked = null;//if this is null, it's the first card to be compared later
+var second_card_clicked = null;
+var total_possible_matches = 9;
+var match_counter = 0;//when this reaches 9, the user wins the game
+var matches = 0; //increment by 1 every time the application finds a match
+var attempts = 0; //incremebt by 1 every time user clicks the 2nd card
+var accuracy = 0; //matches/attempts
+var games_played = 0; //increment by 1 when the reset button is clicked
+
 const backgroundMusic = new Audio('theme.mp3');
 const clickSound = new Audio('sound.wav');
+const audio = new Audio('sound.flac');
+const win = new Audio('win.mp3');
 
 function initializeApp() {
     $('.play').click(playBackgroundMusic);
@@ -33,27 +44,10 @@ function initializeApp() {
     reset.click(reset_stats);
     $('.win').fadeOut(0); //fades out the YOU WON message
     display_stats(); //display stats so that stats boxes do not change size when the user starts playing
-    $('.logo').click(function () { //reloads the page when a user clicks on the MapleStory logo
-        location.reload(true);
-    });
+    // $('.logo').click(function () { //reloads the page when a user clicks on the MapleStory logo
+    //     location.reload(true);
+    // });
 }
-
-function playBackgroundMusic() {
-    backgroundMusic.play();
-};
-
-function pauseBackgroundMusic() {
-    backgroundMusic.pause();
-};
-
-var first_card_clicked = null;//if this is null, it's the first card to be compared later
-var second_card_clicked = null;
-var total_possible_matches = 9;
-var match_counter = 0;//when this reaches 9, the user wins the game
-var matches = 0; //increment by 1 every time the application finds a match
-var attempts = 0; //incremebt by 1 every time user clicks the 2nd card
-var accuracy = 0; //matches/attempts
-var games_played = 0; //increment by 1 when the reset button is clicked
 
 function shuffleCardsArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -110,35 +104,39 @@ function card_clicked() {
         second_card_clicked = $(event.currentTarget);
         //If second card's image source is the same as first's card image source
         if (first_card_clicked.find('.front img').attr('src') === second_card_clicked.find('.front img').attr('src')) {
-            var audio = new Audio('sound.flac');
-            audio.play();
-            first_card_clicked.addClass('match');
-            second_card_clicked.addClass('match');
-            first_card_clicked.fadeOut(1000);
-            second_card_clicked.fadeOut(1000);
-            match_counter += 1;
-            matches++;
-            accuracy = matches / attempts;
-            first_card_clicked = null;//reset first_card_clicked for future match comparisoin
-            second_card_clicked = null;
+            matchedCards(first_card_clicked,second_card_clicked);
             if (match_counter === total_possible_matches) {
                 setTimeout(function () {
-                    var win = new Audio('win.mp3');
                     win.play();
                     $('.win').fadeIn(1000);
                 }, 1000);
             }
-
         } else { //if image sources do not match
-            clickSound.play();
-            accuracy = matches / attempts;
-
-            $('.card').off('click',card_clicked);
-            setTimeout(timeOut, 700);
+            mismatchedCards();
         }
         accuracy = Math.round(accuracy * 100) + "%";
     }
     display_stats();
+}
+
+function mismatchedCards(){
+    clickSound.play();
+    accuracy = matches / attempts;
+    $('.card').off('click',card_clicked);
+    setTimeout(timeOut, 700);
+}
+
+function matchedCards(firstCard, secondCard){
+    audio.play();
+    firstCard.addClass('match');
+    secondCard.addClass('match');
+    firstCard.fadeOut(1000);
+    secondCard.fadeOut(1000);
+    match_counter += 1;
+    matches++;
+    accuracy = matches / attempts;
+    first_card_clicked = null;//reset first_card_clicked for future match comparisoin
+    second_card_clicked = null;
 }
 
 function timeOut() {
@@ -158,11 +156,19 @@ function display_stats() {
 
 function reset_stats() {
     $('.win').fadeOut(0); //make the YOU WON texts go away
-    accuracy = 0; //good
-    matches = 0; //good
-    attempts = 0; //good
-    games_played += 1; //good
+    accuracy = 0;
+    matches = 0;
+    attempts = 0;
+    games_played += 1;
     display_stats();
     displayCards(cardImages);
     $('.card').click(card_clicked);
 }
+
+function playBackgroundMusic() {
+    backgroundMusic.play();
+};
+
+function pauseBackgroundMusic() {
+    backgroundMusic.pause();
+};
