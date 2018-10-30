@@ -23,7 +23,7 @@ var cardImages = [
 
 var first_card_clicked = null;//if this is null, it's the first card to be compared later
 var second_card_clicked = null;
-var total_possible_matches = 9;
+var total_possible_matches = 1;
 var match_counter = 0;//when this reaches 9, the user wins the game
 var matches = 0; //increment by 1 every time the application finds a match
 var attempts = 0; //incremebt by 1 every time user clicks the 2nd card
@@ -44,7 +44,7 @@ function initializeApp() {
     displayCards(cardImages);
     $('.card').click(card_clicked);
     var reset = $('button.reset');
-    reset.click(reset_stats);
+    reset.click(reset_game);
     display_stats(); //display stats so that stats boxes do not change size when the user starts playing
 }
 
@@ -98,10 +98,8 @@ function card_clicked() {
         if (first_card_clicked.find('.front img').attr('src') === second_card_clicked.find('.front img').attr('src')) {
             matchedCards(first_card_clicked,second_card_clicked);
             if (match_counter === total_possible_matches) {
-                showWinModal();
                 setTimeout(function () {
-                    soundOn ? win.play() : null;
-                    // $('.win').fadeIn(1000);
+                    showWinModal();
                 }, 1000);
             }
         } else { //if image sources do not match
@@ -147,10 +145,11 @@ function display_stats() {
     $('.matches > .value').text(matches);
 }
 
-function reset_stats() {
+function reset_game() {
     accuracy = 0;
     matches = 0;
     attempts = 0;
+    match_counter = 0;
     games_played += 1;
     display_stats();
     displayCards(cardImages);
@@ -163,10 +162,12 @@ function showWinModal(){
     modal.style.display = "block";//display modal
     span.onclick = function() {//exit modal when click on x
           modal.style.display = "none";
+          reset_game();
     }
     window.onclick = function(event) {//exit modal when click anywhere outside of modal
           if (event.target == modal) {
               modal.style.display = "none";
+              reset_game();
           }
     }  
 }
