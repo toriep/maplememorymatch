@@ -10,20 +10,13 @@ var cardImages = [
     "./images/mushroom.png",
     "./images/stumpy.png",
     "./images/zombie.png",
-    "./images/mano.png",
-    "./images/dragon.png",
-    "./images/pig.png",
-    "./images/snail.png",
-    "./images/slime.png",
-    "./images/whale.png",
-    "./images/mushroom.png",
-    "./images/stumpy.png",
-    "./images/zombie.png",
 ];
+
+cardImages = cardImages.concat(cardImages);
 
 var first_card_clicked = null;//if this is null, it's the first card to be compared later
 var second_card_clicked = null;
-var total_possible_matches = 1;
+var total_possible_matches = 9;
 var match_counter = 0;//when this reaches 9, the user wins the game
 var matches = 0; //increment by 1 every time the application finds a match
 var attempts = 0; //incremebt by 1 every time user clicks the 2nd card
@@ -43,8 +36,7 @@ function initializeApp() {
     $('.sound_pause').click(disableSoundEffects);
     displayCards(cardImages);
     $('.card').click(card_clicked);
-    var reset = $('button.reset');
-    reset.click(reset_game);
+    $('button.reset').click(reset_game);
     display_stats(); //display stats so that stats boxes do not change size when the user starts playing
 }
 
