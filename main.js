@@ -42,11 +42,7 @@ function initializeApp() {
     $('.card').click(card_clicked);
     var reset = $('button.reset');
     reset.click(reset_stats);
-    $('.win').fadeOut(0); //fades out the YOU WON message
     display_stats(); //display stats so that stats boxes do not change size when the user starts playing
-    // $('.logo').click(function () { //reloads the page when a user clicks on the MapleStory logo
-    //     location.reload(true);
-    // });
 }
 
 function shuffleCardsArray(array) {
@@ -65,22 +61,15 @@ function displayCards(array) {
 
     for (var i = 0; i < array.length; i++) {
         var cardDiv = $('<div>').addClass('card');
-
-        var frontImage = $('<img>', {
-            src: array[i]
-        });
+        var frontImage = $('<img>').attr('src', array[i]);
         var frontDiv = $('<div>').addClass('front');
+        var backImage = $('<img>').attr('src', "./images/leaf.png")
+        var backDiv = $('<div>').addClass('back');
+        var cardContainer = $('<div>').addClass('cardContainer');
         frontDiv.append(frontImage);
         cardDiv.append(frontDiv);
-
-        var backImage = $('<img>', {
-            src: "./images/leaf.png"
-        });
-        var backDiv = $('<div>').addClass('back');
         backDiv.append(backImage);
         cardDiv.append(backDiv);
-
-        var cardContainer = $('<div>').addClass('cardContainer');
         cardContainer.append(cardDiv);
         gameArea.append(cardContainer);
     }
@@ -109,7 +98,7 @@ function card_clicked() {
                 showWinModal();
                 setTimeout(function () {
                     win.play();
-                    $('.win').fadeIn(1000);
+                    // $('.win').fadeIn(1000);
                 }, 1000);
             }
         } else { //if image sources do not match
@@ -156,7 +145,6 @@ function display_stats() {
 }
 
 function reset_stats() {
-    $('.win').fadeOut(0); //make the YOU WON texts go away
     accuracy = 0;
     matches = 0;
     attempts = 0;
@@ -167,7 +155,6 @@ function reset_stats() {
 }
 
 function showWinModal(){
-    console.log('Win Modal');
     var modal = document.getElementById('winModal')
     var span = document.getElementsByClassName("close")[0];
     modal.style.display = "block";//display modal
