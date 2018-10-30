@@ -21,6 +21,9 @@ var cardImages = [
     "./images/zombie.png",
 ];
 
+const backgroundMusic = new Audio('theme.mp3');
+const clickSound = new Audio('sound.wav');
+
 function initializeApp() {
     $('.play').click(playBackgroundMusic);
     $('.pause').click(pauseBackgroundMusic);
@@ -34,8 +37,6 @@ function initializeApp() {
         location.reload(true);
     });
 }
-
-var backgroundMusic = new Audio('theme.mp3');
 
 function playBackgroundMusic() {
     backgroundMusic.play();
@@ -69,38 +70,29 @@ function displayCards(array) {
     var gameArea = $('#game-area');
 
     for (var i = 0; i < array.length; i++) {
-        var cardDiv = $('<div>', {
-            class: 'card'
-        });
+        var cardDiv = $('<div>').addClass('card');
+
         var frontImage = $('<img>', {
             src: array[i]
         });
-        var frontDiv = $('<div>', {
-            class: 'front'
-        });
+        var frontDiv = $('<div>').addClass('front');
         frontDiv.append(frontImage);
         cardDiv.append(frontDiv);
 
         var backImage = $('<img>', {
             src: "./images/leaf.png"
         });
-        var backDiv = $('<div>', {
-            class: 'back'
-        });
+        var backDiv = $('<div>').addClass('back');
         backDiv.append(backImage);
         cardDiv.append(backDiv);
 
-        var cardContainer = $('<div>', {
-            class: 'cardContainer'
-        });
-
+        var cardContainer = $('<div>').addClass('cardContainer');
         cardContainer.append(cardDiv);
         gameArea.append(cardContainer);
     }
 };
 
 function card_clicked() {
-    var clickSound = new Audio('sound.wav');
     //if card clicked has class of match, function doesn't run further
     if ($(event.currentTarget).hasClass('match')) {
         return;
@@ -118,7 +110,6 @@ function card_clicked() {
         second_card_clicked = $(event.currentTarget);
         //If second card's image source is the same as first's card image source
         if (first_card_clicked.find('.front img').attr('src') === second_card_clicked.find('.front img').attr('src')) {
-            console.log('it\'s a match!');
             var audio = new Audio('sound.flac');
             audio.play();
             first_card_clicked.addClass('match');
@@ -131,7 +122,6 @@ function card_clicked() {
             first_card_clicked = null;//reset first_card_clicked for future match comparisoin
             second_card_clicked = null;
             if (match_counter === total_possible_matches) {
-                console.log('YOU WON!!!');
                 setTimeout(function () {
                     var win = new Audio('win.mp3');
                     win.play();
@@ -144,17 +134,19 @@ function card_clicked() {
             accuracy = matches / attempts;
 
             $('.card').off('click',card_clicked);
-            setTimeout(function () {
-                $(first_card_clicked).find(".back").removeClass('hidden');
-                $(second_card_clicked).find(".back").removeClass('hidden');
-                first_card_clicked = null;
-                second_card_clicked = null;
-                $('.card').click(card_clicked); //re-attaches clickhandler to .card
-            }, 700);
+            setTimeout(timeOut, 700);
         }
         accuracy = Math.round(accuracy * 100) + "%";
     }
     display_stats();
+}
+
+function timeOut() {
+    $(first_card_clicked).find(".back").removeClass('hidden');
+    $(second_card_clicked).find(".back").removeClass('hidden');
+    first_card_clicked = null;
+    second_card_clicked = null;
+    $('.card').click(card_clicked); //re-attaches clickhandler to .card
 }
 
 function display_stats() {
