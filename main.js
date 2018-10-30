@@ -10,16 +10,9 @@ var cardImages = [
     "./images/mushroom.png",
     "./images/stumpy.png",
     "./images/zombie.png",
-    "./images/mano.png",
-    "./images/dragon.png",
-    "./images/pig.png",
-    "./images/snail.png",
-    "./images/slime.png",
-    "./images/whale.png",
-    "./images/mushroom.png",
-    "./images/stumpy.png",
-    "./images/zombie.png",
 ];
+
+cardImages = cardImages.concat(cardImages);
 
 var first_card_clicked = null;//if this is null, it's the first card to be compared later
 var second_card_clicked = null;
