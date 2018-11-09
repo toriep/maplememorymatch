@@ -297,7 +297,7 @@ button:focus {
 @media (max-width: 500px){
     #game-area {
         width: 90%;
-        height: 62vh;
+        height: 342px;
         top: -10%;
     }
 
@@ -307,9 +307,10 @@ button:focus {
     }
     .logo {
         position: relative;
-        width: 90%;
+        width: 100px;
         bottom: 2vh;
         left: -53vw;
+        height: 40px;
     }
     .modal-content {
         width: 100%;
@@ -326,6 +327,7 @@ button:focus {
 
     .stats-container{
         font-size: 0.8em;
+        height: 20px;
     }
     .stats {
         font-size: 0.3em;
