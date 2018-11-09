@@ -8,6 +8,10 @@ body {
     background-position:center; /* white space before snapping */
 }
 
+.header{
+    height: 15%;
+}
+
 header {
     padding: 5px 20px;
     border-radius: 50px 20px;
@@ -81,16 +85,11 @@ button:focus {
     outline:0;
 }
 
-.container{
-    height: 100%;
-    width: 100%;
-}
-
 #game-area {
     display: flex;
     justify-content: center;
-    width: 75%;
-    height: 70%;
+    width: 80%;
+    height: 75%;
     flex-wrap: wrap;
     padding: 10px;
     margin: auto;
@@ -163,6 +162,7 @@ button:focus {
 .stats-container {
     display: flex;
     width: 75%;
+    height: 5%;
     justify-content: space-around;
     margin: auto;
     border: 1.5px solid white;
@@ -242,7 +242,6 @@ button:focus {
         width: 95%;
         bottom: 5%;
     }
-
     .stats-container {
         width: 95%;
     }
@@ -297,13 +296,15 @@ button:focus {
 @media (max-width: 500px){
     #game-area {
         width: 90%;
-        height: 342px;
-        top: -10%;
+        height: 85%;
+    }
+    .header{
+        height: 7%;
     }
 
     .cardContainer {
         width: 31%;
-        height: 21%;
+        height: 16.33%;
     }
     .logo {
         position: relative;
@@ -328,9 +329,10 @@ button:focus {
     .stats-container{
         font-size: 0.8em;
         height: 20px;
+        padding: 3% 0;
     }
     .stats {
-        font-size: 0.3em;
+        font-size: 0.8em;
     }
     .reset{
         position: relative;
@@ -377,7 +379,6 @@ button:focus {
 @media (width: 1024px) and (height: 1366px) {
     #game-area {
         width: 95%;
-        height: 65%;
     }
 
     .cardContainer {
@@ -390,7 +391,6 @@ button:focus {
 @media (width: 375px) and (height: 812px) {
     #game-area {
         width: 100%;
-        height: 65%;
     }
 
     .cardContainer {

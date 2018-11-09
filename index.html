@@ -14,41 +14,40 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="header">
         <div class="sound">
-            <img class="music music_play" src="music_on.png">
-            <img class="music music_pause" src="pause.png">
-            <img class="music sound_play" src="play.png">
-            <img class="music sound_pause" src="off.png">
+                <img class="music music_play" src="music_on.png">
+                <img class="music music_pause" src="pause.png">
+                <img class="music sound_play" src="play.png">
+                <img class="music sound_pause" src="off.png">
+            </div>
+            <header>
+                <img src="./images/MapleStory.SVG.png" class="logo">
+                <div class="title">
+                    <h1>MEMORY MATCH</h1>
+                </div>
+            </header>
+    </div>
+    <div id="game-area"></div>
+    <div class="stats-container">
+        <div class="stats games-played">
+            <div class="label">GAMES PLAYED</div>
+            <div class="value"></div>
         </div>
-        <header>
-            <img src="./images/MapleStory.SVG.png" class="logo">
-            <div class="title">
-                <h1>MEMORY MATCH</h1>
-            </div>
-        </header>
-        <div id="game-area">
+        <div class="stats attempts">
+            <div class="label">ATTEMPTS</div>
+            <div class="value"></div>
         </div>
-        <div class="stats-container">
-            <div class="stats games-played">
-                <div class="label">GAMES PLAYED</div>
-                <div class="value"></div>
-            </div>
-            <div class="stats attempts">
-                <div class="label">ATTEMPTS</div>
-                <div class="value"></div>
-            </div>
-            <div class="stats matches">
-                <div class="label">MATCHES</div>
-                <div class="value"></div>
-            </div>
-            <div class="stats accuracy">
-                <div class="label">ACCURACY</div>
-                <div class="value"></div>
-            </div>
-            <div class="reset-btn">
-                <button class="reset">New Game</button>
-            </div>
+        <div class="stats matches">
+            <div class="label">MATCHES</div>
+            <div class="value"></div>
+        </div>
+        <div class="stats accuracy">
+            <div class="label">ACCURACY</div>
+            <div class="value"></div>
+        </div>
+        <div class="reset-btn">
+            <button class="reset">New Game</button>
         </div>
     </div>
     <div id="winModal" class="modal">
