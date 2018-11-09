@@ -169,8 +169,10 @@ button:focus {
     background-color: #f66242;
     border-radius: 20px 20px;
     padding: 15px 0;
-    position: relative;
-    bottom: -72vh;
+    bottom: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .stats{
@@ -243,8 +245,6 @@ button:focus {
 
     .stats-container {
         width: 95%;
-        position: relative;
-        bottom: -77vh;
     }
     .cardContainer {
         width: 16.6666%;
@@ -292,16 +292,12 @@ button:focus {
     .stats{
         font-size: 0.8em;
     }
-    .stats-container {
-        bottom: -80vh;
-    }
 }
-
 
 @media (max-width: 500px){
     #game-area {
-        width: 100%;
-        height: 65%;
+        width: 90%;
+        height: 62vh;
         top: -10%;
     }
 
@@ -311,7 +307,9 @@ button:focus {
     }
     .logo {
         position: relative;
-        right: 3%;
+        width: 90%;
+        bottom: 2vh;
+        left: -53vw;
     }
     .modal-content {
         width: 100%;
@@ -322,21 +320,80 @@ button:focus {
     }
 
     header{
-        width: 100%;
+        width: 50%;
         top: 0;
     }
 
     .stats-container{
         font-size: 0.8em;
-        top: 84vh;
+    }
+    .stats {
+        font-size: 0.3em;
     }
     .reset{
         position: relative;
         right: 10%;
     }
+    .sound{
+        top: 2%;
+        z-index: 2;
+        right: 7%;
+    }
     .music {
         width: 25px;
         height: 25px;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 499px) {
+    #game-area {
+        width: 85%;
+    }
+    .stats-container{
+        width: 85%;;
+    }
+}
+
+/*Galaxy Note 2*/
+@media (width: 360px) and (height: 640px) {
+    .stats-container{
+        /* bottom: -15px; */
+    }
+    #game-area {
+        height: 65%;
+    }
+}
+
+/*iphone 6/7*/
+@media (width: 414px) and (height: 736px) {
+    /* .stats-container{
+        bottom: 12px;
+    } */
+}
+
+/*iPad Pro*/
+@media (width: 1024px) and (height: 1366px) {
+    #game-area {
+        width: 95%;
+        height: 65%;
+    }
+
+    .cardContainer {
+        width: 26%;
+        height: 21%;
+    }
+}
+
+/*iphone X*/
+@media (width: 375px) and (height: 812px) {
+    #game-area {
+        width: 100%;
+        height: 65%;
+    }
+
+    .cardContainer {
+        width: 33.333%;
+        height: 21%;
     }
 }
 
