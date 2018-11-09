@@ -34,7 +34,16 @@ header {
 .music:hover{
     cursor: pointer;
 }
-
+.music_pause{
+    position: absolute;
+    right: 0;
+    top: 41px;
+}
+.music_play{
+    position: absolute;
+    right: 41px;
+    top: 41px;
+}
 .logo {
     width: 25%;
     height: 10%;
@@ -248,7 +257,9 @@ button:focus {
         left: 50%;
         transform: translateX(-50%);
     }
-
+    .music{
+        position: static;
+    }
     .logo {
         width: 25%;
         height: 10%;
