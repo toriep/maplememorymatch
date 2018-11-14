@@ -86,7 +86,7 @@ button:focus {
     display: flex;
     justify-content: center;
     width: 80%;
-    height: 75%;
+    height: 74%;
     flex-wrap: wrap;
     padding: 10px;
     margin: auto;
@@ -97,7 +97,7 @@ button:focus {
 
 .cardContainer {
     width: 16.66%;
-    height: 33.33%;
+    height: 31.33%;
     display: flex;
     justify-content: center;
 }
@@ -158,7 +158,7 @@ button:focus {
 
 .stats-container {
     display: flex;
-    width: 75%;
+    width: 79%;
     height: 5%;
     justify-content: space-around;
     margin: auto;
@@ -334,13 +334,14 @@ button:focus {
         font-size: 0.8em;
         height: 20px;
         padding: 3% 0;
+        width: 98%;
     }
     .stats {
         font-size: 0.8em;
     }
     .reset{
         position: relative;
-        right: 10%;
+        /* right: 10%; */
     }
     .sound{
         top: 2%;
@@ -356,9 +357,6 @@ button:focus {
 @media (min-width: 400px) and (max-width: 499px) {
     #game-area {
         width: 85%;
-    }
-    .stats-container{
-        width: 85%;;
     }
 }
 
