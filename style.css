@@ -35,16 +35,13 @@ header {
 .music:hover{
     cursor: pointer;
 }
-.music_pause{
+
+.music_play, .music_pause{
     position: absolute;
     right: 41px;
-    /* top: 41px; */
+    margin-right: 5px;
 }
-.music_play{
-    position: absolute;
-    right: 41px;
-    /* top: 41px; */
-}
+
 .logo {
     width: 25%;
     height: 10%;
@@ -149,6 +146,8 @@ button:focus {
     box-shadow: 5px 5px 3px 0 rgba(39, 72, 77, 0.6);
     white-space: nowrap;
     padding: 0.5em;
+    bottom: 15%;
+    position: relative;
 }
 
 .reset:hover {
@@ -373,7 +372,7 @@ button:focus {
         /* bottom: -15px; */
     }
     #game-area {
-        height: 65%;
+        height: 85%;
     }
 }
 
@@ -396,6 +395,17 @@ button:focus {
     }
 }
 
+/*iPad*/
+@media (width: 768px) and (height: 1024px) {
+    #game-area {
+        width: 95%;
+    }
+
+    .cardContainer {
+        height: 18%;
+    }
+}
+
 /*iphone X*/
 @media (width: 375px) and (height: 812px) {
     #game-area {
@@ -404,7 +414,7 @@ button:focus {
 
     .cardContainer {
         width: 33.333%;
-        height: 21%;
+        height: 16%;
     }
 }
 
