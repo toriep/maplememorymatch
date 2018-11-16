@@ -37,13 +37,13 @@ header {
 }
 .music_pause{
     position: absolute;
-    right: 0;
-    top: 41px;
+    right: 41px;
+    /* top: 41px; */
 }
 .music_play{
     position: absolute;
     right: 41px;
-    top: 41px;
+    /* top: 41px; */
 }
 .logo {
     width: 25%;
@@ -193,7 +193,7 @@ button:focus {
 .modal {
     display: none; 
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     padding-top: 100px;
     left: 0;
     top: 0;
@@ -319,6 +319,7 @@ button:focus {
     }
     .modal-content {
         width: 100%;
+        bottom: 17%;
     }
    
     .title {
@@ -351,6 +352,12 @@ button:focus {
     .music {
         width: 25px;
         height: 25px;
+    }
+    .close{
+        position: relative;
+        right: 10px;
+        bottom: 30px;
+
     }
 }
 

@@ -16,16 +16,16 @@ cardImages = cardImages.concat(cardImages);
 
 var first_card_clicked = null;//if this is null, it's the first card to be compared later
 var second_card_clicked = null;
-var total_possible_matches = 9;
+var total_possible_matches = 1;
 var match_counter = 0;//when this reaches 9, the user wins the game
 var matches = 0; //increment by 1 every time the application finds a match
 var attempts = 0; //incremebt by 1 every time user clicks the 2nd card
 var accuracy = 0; //matches/attempts
 var games_played = 0; //increment by 1 when the reset button is clicked
 
-const backgroundMusic = new Audio('theme.mp3');
-const clickSound = new Audio('sound.wav');
-const audio = new Audio('sound.flac');
+const backgroundMusic = new Audio('./sounds/theme.mp3');
+const clickSound = new Audio('./sounds/sound.wav');
+const matchedSound = new Audio('./sounds/matched.mp3');
 const win = new Audio('win.mp3');
 var soundOn = true;
 
@@ -110,7 +110,7 @@ function mismatchedCards(){
 }
 
 function matchedCards(firstCard, secondCard){
-    soundOn ? audio.play() : null;
+    soundOn ? matchedSound.play() : null;
     firstCard.addClass('match');
     secondCard.addClass('match');
     firstCard.fadeOut(1000);
@@ -166,16 +166,24 @@ function showWinModal(){
 
 function playBackgroundMusic() {
     backgroundMusic.play();
+    $('.music_play').addClass('hidden');
+    $('.music_pause').removeClass('hidden');
 };
 
 function pauseBackgroundMusic() {
     backgroundMusic.pause();
+    $('.music_play').removeClass('hidden');
+    $('.music_pause').addClass('hidden');
 };
 
 function disableSoundEffects(){
     soundOn = false;
+    $('.sound_play').removeClass('hidden');
+    $('.sound_pause').addClass('hidden');
 };
 
 function enableSoundEffects(){
     soundOn = true;
+    $('.sound_play').addClass('hidden');
+    $('.sound_pause').removeClass('hidden');
 };
