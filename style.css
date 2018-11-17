@@ -152,7 +152,7 @@ button:focus {
     cursor: pointer;
     border-radius: 60px;
     background-color: #159F6B;
-    box-shadow: 5px 5px 3px 0 rgba(39, 72, 77, 0.6);
+    box-shadow: 1px 6px 3px 0 rgba(39, 72, 77, 0.6);
     white-space: nowrap;
     padding: 0.5em;
     bottom: 15%;
@@ -447,7 +447,7 @@ button:focus {
     }
     .cardContainer {
         width: 16%;
-        height: 30%;
+        height: 28%;
     }
     .stats-container{
         align-items: center;
@@ -461,11 +461,8 @@ button:focus {
         width: 15%;
         height: 80%;
     }
-    .reset{
-        margin-top: 50%;
-    }
     .stats{
-        font-family: 'Jua';
+        font-family: 'Roboto Slab';
         align-items: inherit;
     }
     .modal{
