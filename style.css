@@ -175,7 +175,7 @@ button:focus {
     border-radius: 20px 20px;
     padding: 15px 0;
     bottom: 0;
-    position: absolute;
+    position: fixed;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Roboto Slab';
@@ -433,9 +433,10 @@ button:focus {
         display: none;
     }
     #game-area {
+        position: fixed;
         width: 80%;
         height: 80%;
-        bottom: 0%;
+        bottom: 0;
         left: 60%;
         margin-right: 2%;
     }
