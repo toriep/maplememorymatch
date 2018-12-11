@@ -26,6 +26,7 @@ header {
     position: fixed;
     right: 2%;
     top: 2%;
+    z-index: 4;
 }
 .sound * {
     width: 40px;

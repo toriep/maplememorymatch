@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MapleStory Matching Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua|Roboto+Slab|Jua" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="oop.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/leaf.png">
+</head>
+
+<body>
+    <div class="header">
+        <div class="sound">
+                <img class="music music_play" src="./images/music_on.png">
+                <img class="music music_pause hidden" src="./images/music_off.png">
+                <img class="music sound_play hidden" src="./images/sound-on.png">
+                <img class="music sound_pause" src="./images/sound-off.png">
+            </div>
+            <header>
+                <img src="./images/MapleStory.SVG.png" class="logo">
+                <div class="title">
+                    <h1>MEMORY MATCH</h1>
+                </div>
+            </header>
+    </div>
+    <div class="container">
+            <div class="stats-container-portrait">
+                    <div class="stats games-played">
+                        <div class="label">Games Played</div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="stats attempts">
+                        <div class="label">Attempts</div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="stats matches">
+                        <div class="label">Matches</div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="stats accuracy">
+                        <div class="label">Accuracy</div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="reset-btn">
+                        <button class="reset">New Game</button>
+                    </div>
+                </div>
+        <div id="game-area"></div>
+    </div>
+    <div class="stats-container">
+        <div class="stats games-played">
+            <div class="label">Games Played</div>
+            <div class="value"></div>
+        </div>
+        <div class="stats attempts">
+            <div class="label">Attempts</div>
+            <div class="value"></div>
+        </div>
+        <div class="stats matches">
+            <div class="label">Matches</div>
+            <div class="value"></div>
+        </div>
+        <div class="stats accuracy">
+            <div class="label">Accuracy</div>
+            <div class="value"></div>
+        </div>
+        <div class="reset-btn">
+            <button class="reset">New Game</button>
+        </div>
+    </div>
+    <div id="winModal" class="modal">
+        <div class="modal-content win">
+            <span class="close">&times;</span>
+            YOU WON!
+            <br> The Maple Kingdom
+            <br>salutes you!
+            <img src="./images/celeb.gif" alt="" class="celeb">
+        </div>
+    </div>
+</body>
+
+</html>

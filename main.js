@@ -19,7 +19,7 @@ var second_card_clicked = null;
 var total_possible_matches = 9;
 var match_counter = 0;//when this reaches 9, the user wins the game
 var matches = 0; //increment by 1 every time the application finds a match
-var attempts = 0; //incremebt by 1 every time user clicks the 2nd card
+var attempts = 0; //increment by 1 every time user clicks the 2nd card
 var accuracy = 0; //matches/attempts
 var games_played = 0; //increment by 1 when the reset button is clicked
 
@@ -79,6 +79,7 @@ function card_clicked() {
     $(event.currentTarget).find('.back').addClass('hidden');
     if (first_card_clicked === null) { //first card clicked
         first_card_clicked = $(event.currentTarget);
+        debugger;
         soundOn ? clickSound.play() : null;
     } else { //if first_card_clicked is not null, this is a the second card
         attempts += 1;
@@ -127,7 +128,7 @@ function timeOut() {
     $(second_card_clicked).find(".back").removeClass('hidden');
     first_card_clicked = null;
     second_card_clicked = null;
-    $('.card').click(card_clicked); //re-attaches clickhandler to .card
+    $('.card').click(card_clicked); //re-attaches clickhandler to cards
 }
 
 function display_stats() {
@@ -187,3 +188,4 @@ function enableSoundEffects(){
     $('.sound_play').addClass('hidden');
     $('.sound_pause').removeClass('hidden');
 };
+
