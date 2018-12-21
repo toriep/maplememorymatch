@@ -11,21 +11,21 @@ class Game{
     constructor(){
         this.cardImages = [
             "./images/mano.png",
-            "./images/dragon.png",
-            "./images/pig.png",
-            "./images/snail.png",
-            "./images/slime.png",
-            "./images/whale.png",
-            "./images/mushroom.png",
-            "./images/stumpy.png",
-            "./images/zombie.png",
+            // "./images/dragon.png",
+            // "./images/pig.png",
+            // "./images/snail.png",
+            // "./images/slime.png",
+            // "./images/whale.png",
+            // "./images/mushroom.png",
+            // "./images/stumpy.png",
+            // "./images/zombie.png",
         ];
         
         this.cardImages = this.cardImages.concat(this.cardImages);
         this.first_card_clicked = null;//if this is null, it's the first card to be compared later
         this.second_card_clicked = null;
         this.clickable = true;
-        this.total_possible_matches = 9;
+        this.total_possible_matches = 1;
         this.match_counter = 0;//when this reaches 9, the user wins the game
         this.matches = 0; //increment by 1 every time the application finds a match
         this.attempts = 0; //increment by 1 every time user clicks the 2nd card
@@ -49,7 +49,7 @@ class Game{
         $('button.reset').click(()=>this.reset_game());
         this.display_stats(); //display stats so that stats boxes do not change size when the user starts playing
     }
-    
+
     shuffleCardsArray(array) {
         for (var i = array.length - 1; i > 0; i--) {
             var newIndex = Math.floor(Math.random() * (i + 1));
@@ -151,6 +151,8 @@ class Game{
     }
 
     reset_game() {
+        this.first_card_clicked = null;
+        this.second_card_clicked = null;
         this.accuracy = 0;
         this.matches = 0;
         this.attempts = 0;
@@ -158,6 +160,7 @@ class Game{
         this.games_played += 1;
         this.display_stats();
         this.displayCards(this.cardImages);
+        $('.card').click(()=>this.card_clicked());
         $('.card').click(this.card_clicked.bind(this.backImage));
     }
 
