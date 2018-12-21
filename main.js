@@ -35,7 +35,7 @@ class Game{
         this.backgroundMusic = new Audio('./sounds/theme.mp3');
         this.clickSound = new Audio('./sounds/sound.wav');
         this.matchedSound = new Audio('./sounds/matched.mp3');
-        this.soundOn = true;
+        this.soundOn = false;
     }
 
     initialize(){
@@ -98,8 +98,7 @@ class Game{
             this.soundOn ? this.clickSound.play() : null;
         /* if first_card_clicked is not null, this is a the second card */
         } else {
-            debugger;
-            this.attempts += 1;
+            this.attempts++;
             /* if user clicks on a front card twice */
             if (this.first_card_clicked === event.currentTarget) {
                 return;
@@ -109,7 +108,7 @@ class Game{
             if ($(this.first_card_clicked).find('.front img').attr('src') === $(this.second_card_clicked).find('.front img').attr('src')) {
                 this.matchedCards($(this.first_card_clicked),$(this.second_card_clicked));
                 if (this.match_counter === this.total_possible_matches) {
-                    setTimeout(()=> {
+                    setTimeout(() => {
                         this.showWinModal();
                     }, 1000);
                 }
@@ -125,8 +124,8 @@ class Game{
     mismatchedCards(){
         this.soundOn ? this.clickSound.play() : null;
         this.accuracy = this.matches / this.attempts;
-        this.clickable= false;
-        setTimeout(()=>this.timeOut(), 700);
+        this.clickable = false;
+        setTimeout(() => this.timeOut(), 700);
     }
     
     matchedCards(firstCard, secondCard){
@@ -134,7 +133,7 @@ class Game{
         secondCard.addClass('match');
         firstCard.fadeOut(1000);
         secondCard.fadeOut(1000);
-        this.match_counter += 1;
+        this.match_counter++;
         this.matches++;
         this.accuracy = this.matches / this.attempts;
         this.first_card_clicked = null;
@@ -164,10 +163,10 @@ class Game{
         this.matches = 0;
         this.attempts = 0;
         this.match_counter = 0;
-        this.games_played += 1;
+        this.games_played++;
         this.display_stats();
         this.displayCards(this.cardImages);
-        $('.card').click(()=>this.card_clicked());
+        $('.card').click(() => this.card_clicked());
     }
 
     showWinModal(){
@@ -176,12 +175,12 @@ class Game{
         /*display modal*/
         this.modal.style.display = "block";
         /* exit modal when click on x */
-        this.span.onclick = ()=> {
+        this.span.onclick = () => {
             this.modal.style.display = "none";
             this.reset_game();
         }
         /* exit modal when click anywhere outside of modal  */
-        window.onclick = (event)=> {
+        window.onclick = (event) => {
               if (event.target == this.modal) {
                   this.modal.style.display = "none";
                   this.reset_game();
@@ -189,13 +188,13 @@ class Game{
         }  
     }
 
-    playBackgroundMusic() {
+    playBackgroundMusic(){
         this.backgroundMusic.play();
         $('.music_play').addClass('hidden');
         $('.music_pause').removeClass('hidden');
     };
     
-    pauseBackgroundMusic() {
+    pauseBackgroundMusic(){
         this.backgroundMusic.pause();
         $('.music_play').removeClass('hidden');
         $('.music_pause').addClass('hidden');
