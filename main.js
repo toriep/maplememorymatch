@@ -79,7 +79,6 @@ function card_clicked() {
     $(event.currentTarget).find('.back').addClass('hidden');
     if (first_card_clicked === null) { //first card clicked
         first_card_clicked = $(event.currentTarget);
-        debugger;
         soundOn ? clickSound.play() : null;
     } else { //if first_card_clicked is not null, this is a the second card
         attempts += 1;
