@@ -24,6 +24,7 @@ class Game{
         this.cardImages = this.cardImages.concat(this.cardImages);
         this.first_card_clicked = null;//if this is null, it's the first card to be compared later
         this.second_card_clicked = null;
+        this.clickable = true;
         this.total_possible_matches = 9;
         this.match_counter = 0;//when this reaches 9, the user wins the game
         this.matches = 0; //increment by 1 every time the application finds a match
@@ -37,6 +38,7 @@ class Game{
         // this.win = new Audio('win.mp3');
         this.soundOn = true;
     }
+
     initialize(){
         $('.music_play').click(()=>this.playBackgroundMusic());
         $('.music_pause').click(()=>this.pauseBackgroundMusic());
@@ -47,6 +49,7 @@ class Game{
         $('button.reset').click(()=>this.reset_game());
         this.display_stats(); //display stats so that stats boxes do not change size when the user starts playing
     }
+    
     shuffleCardsArray(array) {
         for (var i = array.length - 1; i > 0; i--) {
             var newIndex = Math.floor(Math.random() * (i + 1));
@@ -76,7 +79,11 @@ class Game{
             this.gameArea.append(this.cardContainer);
         }
     };
+
     card_clicked() {
+        if(this.clickable===false){
+            return;
+        }
         //if card clicked has class of match, function doesn't run further
         if ($(event.currentTarget).hasClass('match')) {
             return;
@@ -111,7 +118,7 @@ class Game{
     mismatchedCards(){
         this.soundOn ? this.clickSound.play() : null;
         this.accuracy = this.matches / this.attempts;
-        $('.card').off('click',this.card_clicked.bind(this));
+        this.clickable= false;
         setTimeout(()=>this.timeOut(), 700);
     }
     
@@ -123,7 +130,7 @@ class Game{
         this.match_counter += 1;
         this.matches++;
         this.accuracy = this.matches / this.attempts;
-        this.first_card_clicked = null;//reset first_card_clicked for future match comparisoin
+        this.first_card_clicked = null;//reset first_card_clicked for future match comparison
         this.second_card_clicked = null;
         this.soundOn ? this.matchedSound.play() : null;
     }
@@ -133,14 +140,16 @@ class Game{
         $(this.second_card_clicked).find(".back").removeClass('hidden');
         this.first_card_clicked = null;
         this.second_card_clicked = null;
-        // $('.card').click(()=>this.card_clicked()); //re-attaches clickhandler to cards
+        this.clickable = true;
     }
+
     display_stats() {
         $('.games-played > .value').text(this.games_played);
         $('.attempts > .value').text(this.attempts);
         $('.accuracy > .value').text(this.accuracy);
         $('.matches > .value').text(this.matches);
     }
+
     reset_game() {
         this.accuracy = 0;
         this.matches = 0;
@@ -151,6 +160,7 @@ class Game{
         this.displayCards(this.cardImages);
         $('.card').click(this.card_clicked.bind(this.backImage));
     }
+
     showWinModal(){
         this.modal = document.getElementById('winModal')
         this.span = document.getElementsByClassName("close")[0];
@@ -166,6 +176,7 @@ class Game{
               }
         }  
     }
+
     playBackgroundMusic() {
         this.backgroundMusic.play();
         $('.music_play').addClass('hidden');
