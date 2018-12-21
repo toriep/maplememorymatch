@@ -1,53 +1,56 @@
-$(document).ready(initializeApp);
+$(document).ready(initializeGame);
 
-let game1;
+let card_game;
 
-function initializeApp() {
-    game1 = new Game();
-    game1.initialize();
+function initializeGame() {
+    card_game = new Game();
+    card_game.initialize();
 }
 
 class Game{
     constructor(){
         this.cardImages = [
             "./images/mano.png",
-            // "./images/dragon.png",
-            // "./images/pig.png",
-            // "./images/snail.png",
-            // "./images/slime.png",
-            // "./images/whale.png",
-            // "./images/mushroom.png",
-            // "./images/stumpy.png",
-            // "./images/zombie.png",
+            "./images/dragon.png",
+            "./images/pig.png",
+            "./images/snail.png",
+            "./images/slime.png",
+            "./images/whale.png",
+            "./images/mushroom.png",
+            "./images/stumpy.png",
+            "./images/zombie.png",
         ];
         
         this.cardImages = this.cardImages.concat(this.cardImages);
-        this.first_card_clicked = null;//if this is null, it's the first card to be compared later
+        this.first_card_clicked = null;/* if this is null, it's the first card to be compared later */
         this.second_card_clicked = null;
         this.clickable = true;
-        this.total_possible_matches = 1;
-        this.match_counter = 0;//when this reaches 9, the user wins the game
-        this.matches = 0; //increment by 1 every time the application finds a match
-        this.attempts = 0; //increment by 1 every time user clicks the 2nd card
-        this.accuracy = 0; //matches/attempts
-        this.games_played = 0; //increment by 1 when the reset button is clicked
+        this.total_possible_matches = 4;
+        this.match_counter = 0;/* when this reaches 9, the user wins the game */
+        this.matches = 0; /* increment by 1 every time the application finds a match */
+        this.attempts = 0; /* increment by 1 every time user clicks the 2nd card */
+        this.accuracy = 0; /* matches/attempts  */
+        this.games_played = 0; /* increment by 1 when the reset button is clicked  */
         
         this.backgroundMusic = new Audio('./sounds/theme.mp3');
         this.clickSound = new Audio('./sounds/sound.wav');
         this.matchedSound = new Audio('./sounds/matched.mp3');
-        // this.win = new Audio('win.mp3');
         this.soundOn = true;
     }
 
     initialize(){
+        this.displayCards(this.cardImages);
+        this.display_stats();
+        this.addClickHandlers();
+    }
+
+    addClickHandlers(){
         $('.music_play').click(()=>this.playBackgroundMusic());
         $('.music_pause').click(()=>this.pauseBackgroundMusic());
         $('.sound_play').click(()=>this.enableSoundEffects());
         $('.sound_pause').click(()=>this.disableSoundEffects());
-        this.displayCards(this.cardImages);
         $('.card').click(()=>this.card_clicked());
         $('button.reset').click(()=>this.reset_game());
-        this.display_stats(); //display stats so that stats boxes do not change size when the user starts playing
     }
 
     shuffleCardsArray(array) {
@@ -84,22 +87,24 @@ class Game{
         if(this.clickable===false){
             return;
         }
-        //if card clicked has class of match, function doesn't run further
+        /* if card clicked has class of match, function doesn't run further */
         if ($(event.currentTarget).hasClass('match')) {
             return;
         }
-        //else, find element with class of back and add class hidden
+        /* else, find element with class of back and add class hidden */
         $(event.currentTarget).find('.back').addClass('hidden');
         if (this.first_card_clicked === null) { //first card clicked
             this.first_card_clicked = event.currentTarget;
             this.soundOn ? this.clickSound.play() : null;
-        } else { //if first_card_clicked is not null, this is a the second card
+        /* if first_card_clicked is not null, this is a the second card */
+        } else {
             this.attempts += 1;
-            if (this.first_card_clicked === event.currentTarget) {//if user clicks on a front card twice
-                return;//disable further card comparison
+            /* if user clicks on a front card twice */
+            if (this.first_card_clicked === event.currentTarget) {
+                return;
             }
             this.second_card_clicked = event.currentTarget;
-            //If second card's image source is the same as first's card image source
+            /* If second card's image source is the same as first's card image source */
             if ($(this.first_card_clicked).find('.front img').attr('src') === $(this.second_card_clicked).find('.front img').attr('src')) {
                 this.matchedCards($(this.first_card_clicked),$(this.second_card_clicked));
                 if (this.match_counter === this.total_possible_matches) {
@@ -107,7 +112,8 @@ class Game{
                         this.showWinModal();
                     }, 1000);
                 }
-            } else { //if image sources do not match
+            /* if image sources do not match  */
+            } else { 
                 this.mismatchedCards();
             }
             this.accuracy = Math.round(this.accuracy * 100) + "%";
@@ -130,7 +136,7 @@ class Game{
         this.match_counter += 1;
         this.matches++;
         this.accuracy = this.matches / this.attempts;
-        this.first_card_clicked = null;//reset first_card_clicked for future match comparison
+        this.first_card_clicked = null;
         this.second_card_clicked = null;
         this.soundOn ? this.matchedSound.play() : null;
     }
@@ -167,12 +173,15 @@ class Game{
     showWinModal(){
         this.modal = document.getElementById('winModal')
         this.span = document.getElementsByClassName("close")[0];
-        this.modal.style.display = "block";//display modal
-        this.span.onclick = ()=> {//exit modal when click on x
+        /*display modal*/
+        this.modal.style.display = "block";
+        /* exit modal when click on x */
+        this.span.onclick = ()=> {
             this.modal.style.display = "none";
             this.reset_game();
         }
-        window.onclick = (event)=> {//exit modal when click anywhere outside of modal
+        /* exit modal when click anywhere outside of modal  */
+        window.onclick = (event)=> {
               if (event.target == this.modal) {
                   this.modal.style.display = "none";
                   this.reset_game();
