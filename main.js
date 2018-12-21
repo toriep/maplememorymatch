@@ -2,21 +2,21 @@ $(document).ready(initializeApp);
 
 var cardImages = [
     "./images/mano.png",
-    "./images/dragon.png",
-    "./images/pig.png",
-    "./images/snail.png",
-    "./images/slime.png",
-    "./images/whale.png",
-    "./images/mushroom.png",
-    "./images/stumpy.png",
-    "./images/zombie.png",
+    // "./images/dragon.png",
+    // "./images/pig.png",
+    // "./images/snail.png",
+    // "./images/slime.png",
+    // "./images/whale.png",
+    // "./images/mushroom.png",
+    // "./images/stumpy.png",
+    // "./images/zombie.png",
 ];
 
 cardImages = cardImages.concat(cardImages);
 
 var first_card_clicked = null;//if this is null, it's the first card to be compared later
 var second_card_clicked = null;
-var total_possible_matches = 9;
+var total_possible_matches = 1;
 var match_counter = 0;//when this reaches 9, the user wins the game
 var matches = 0; //increment by 1 every time the application finds a match
 var attempts = 0; //increment by 1 every time user clicks the 2nd card
@@ -83,6 +83,7 @@ function card_clicked() {
     } else { //if first_card_clicked is not null, this is a the second card
         attempts += 1;
         if (first_card_clicked[0] === event.currentTarget) {//if user clicks on a front card twice
+            debugger;
             return;//disable further card comparison
         }
         second_card_clicked = $(event.currentTarget);

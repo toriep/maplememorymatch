@@ -9,24 +9,22 @@ function initializeApp() {
 
 class Game{
     constructor(){
-        console.log(this);
-        this.theObject = this;
         this.cardImages = [
             "./images/mano.png",
-            // "./images/dragon.png",
-            // "./images/pig.png",
-            // "./images/snail.png",
-            // "./images/slime.png",
-            // "./images/whale.png",
-            // "./images/mushroom.png",
-            // "./images/stumpy.png",
-            // "./images/zombie.png",
+            "./images/dragon.png",
+            "./images/pig.png",
+            "./images/snail.png",
+            "./images/slime.png",
+            "./images/whale.png",
+            "./images/mushroom.png",
+            "./images/stumpy.png",
+            "./images/zombie.png",
         ];
         
         this.cardImages = this.cardImages.concat(this.cardImages);
         this.first_card_clicked = null;//if this is null, it's the first card to be compared later
         this.second_card_clicked = null;
-        this.total_possible_matches = 1;
+        this.total_possible_matches = 9;
         this.match_counter = 0;//when this reaches 9, the user wins the game
         this.matches = 0; //increment by 1 every time the application finds a match
         this.attempts = 0; //increment by 1 every time user clicks the 2nd card
@@ -40,14 +38,12 @@ class Game{
         this.soundOn = true;
     }
     initialize(){
-        console.log(this);
         $('.music_play').click(()=>this.playBackgroundMusic());
         $('.music_pause').click(()=>this.pauseBackgroundMusic());
         $('.sound_play').click(()=>this.enableSoundEffects());
         $('.sound_pause').click(()=>this.disableSoundEffects());
         this.displayCards(this.cardImages);
         $('.card').click(()=>this.card_clicked());
-        // $(".card").on("click", this.card_clicked.bind(this));
         $('button.reset').click(()=>this.reset_game());
         this.display_stats(); //display stats so that stats boxes do not change size when the user starts playing
     }
@@ -92,16 +88,14 @@ class Game{
             this.soundOn ? this.clickSound.play() : null;
         } else { //if first_card_clicked is not null, this is a the second card
             this.attempts += 1;
-            if (this.first_card_clicked[0] === event.currentTarget) {//if user clicks on a front card twice
+            if (this.first_card_clicked === event.currentTarget) {//if user clicks on a front card twice
                 return;//disable further card comparison
             }
             this.second_card_clicked = event.currentTarget;
             //If second card's image source is the same as first's card image source
             if ($(this.first_card_clicked).find('.front img').attr('src') === $(this.second_card_clicked).find('.front img').attr('src')) {
-                debugger;
                 this.matchedCards($(this.first_card_clicked),$(this.second_card_clicked));
                 if (this.match_counter === this.total_possible_matches) {
-                    debugger;
                     setTimeout(()=> {
                         this.showWinModal();
                     }, 1000);
@@ -155,21 +149,18 @@ class Game{
         this.games_played += 1;
         this.display_stats();
         this.displayCards(this.cardImages);
-        $('.card').click(this.card_clicked);
+        $('.card').click(this.card_clicked.bind(this.backImage));
     }
     showWinModal(){
-        debugger;
         this.modal = document.getElementById('winModal')
         this.span = document.getElementsByClassName("close")[0];
         this.modal.style.display = "block";//display modal
         this.span.onclick = ()=> {//exit modal when click on x
-            debugger;
             this.modal.style.display = "none";
             this.reset_game();
         }
         window.onclick = (event)=> {//exit modal when click anywhere outside of modal
               if (event.target == this.modal) {
-                  debugger;
                   this.modal.style.display = "none";
                   this.reset_game();
               }
