@@ -200,7 +200,7 @@ button:focus {
 }
 
 .modal {
-    display: block; 
+    display: none; 
     position: fixed;
     z-index: 3;
     padding-top: 100px;
@@ -304,6 +304,9 @@ button:focus {
         font-size: 0.7em;
         display: none;
     }
+    .win{
+        font-size: 3em;
+    }
 }
 
 @media (max-width: 500px){
@@ -328,7 +331,7 @@ button:focus {
     }
     .modal-content {
         width: 100%;
-        bottom: 17%;
+        bottom: 25%;
     }
    
     .title {
@@ -386,6 +389,13 @@ button:focus {
 @media (width: 360px) and (height: 640px) {
     #game-area {
         height: 85%;
+    }
+}
+
+/*iphone 4*/
+@media (width: 320px) and (height: 480px) {
+    .modal-content{
+        bottom: 17%;
     }
 }
 
