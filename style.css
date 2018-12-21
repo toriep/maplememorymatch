@@ -200,7 +200,7 @@ button:focus {
 }
 
 .modal {
-    display: none; 
+    display: block; 
     position: fixed;
     z-index: 3;
     padding-top: 100px;
@@ -378,15 +378,12 @@ button:focus {
 
 @media (min-width: 501px) and (max-width: 850px) {
     .modal-content {
-        width: 60%;
+        width: 70%;
     }
 }
 
 /*Galaxy Note 2*/
 @media (width: 360px) and (height: 640px) {
-    .stats-container{
-        /* bottom: -15px; */
-    }
     #game-area {
         height: 85%;
     }
@@ -394,9 +391,7 @@ button:focus {
 
 /*iphone 6/7*/
 @media (width: 414px) and (height: 736px) {
-    /* .stats-container{
-        bottom: 12px;
-    } */
+
 }
 
 /*iPad Pro*/

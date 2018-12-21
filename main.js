@@ -25,7 +25,7 @@ class Game{
         this.first_card_clicked = null;/* if this is null, it's the first card to be compared later */
         this.second_card_clicked = null;
         this.clickable = true;
-        this.total_possible_matches = 4;
+        this.total_possible_matches = 9;
         this.match_counter = 0;/* when this reaches 9, the user wins the game */
         this.matches = 0; /* increment by 1 every time the application finds a match */
         this.attempts = 0; /* increment by 1 every time user clicks the 2nd card */
@@ -98,6 +98,7 @@ class Game{
             this.soundOn ? this.clickSound.play() : null;
         /* if first_card_clicked is not null, this is a the second card */
         } else {
+            debugger;
             this.attempts += 1;
             /* if user clicks on a front card twice */
             if (this.first_card_clicked === event.currentTarget) {
@@ -167,7 +168,6 @@ class Game{
         this.display_stats();
         this.displayCards(this.cardImages);
         $('.card').click(()=>this.card_clicked());
-        $('.card').click(this.card_clicked.bind(this.backImage));
     }
 
     showWinModal(){
