@@ -170,6 +170,7 @@ class Game{
     }
 
     showWinModal(){
+        /* Credited to W3 */
         this.modal = document.getElementById('winModal')
         this.span = document.getElementsByClassName("close")[0];
         /*display modal*/

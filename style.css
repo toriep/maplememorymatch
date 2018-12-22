@@ -280,10 +280,6 @@ button:focus {
         width: 25px;
         height: 25px;
     }
-    .reset {
-        font-size: 0.7em;
-        padding: 0.7em;
-    }
 
     .title{
         font-size: 0.90em;
@@ -310,6 +306,10 @@ button:focus {
 }
 
 @media (max-width: 500px){
+    .reset {
+        font-size: 0.7em;
+        padding: 0.7em;
+    }
     #game-area {
         width: 90%;
         height: 85%;
