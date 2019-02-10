@@ -58,7 +58,7 @@ class Game{
     
     displayCards(array) {
         $('#game-area').empty();
-        this.shuffleCardsArray(this.cardImages);
+        // this.shuffleCardsArray(this.cardImages);
         this.gameArea = $('#game-area');
     
         for (var i = 0; i < array.length; i++) {
@@ -111,8 +111,9 @@ class Game{
     mismatchedCards(){
         this.soundOn ? this.clickSound.play() : null;
         this.accuracy = this.matches / this.attempts;
-        $('.card').off('click',this.card_clicked.bind(this));
-        setTimeout(()=>this.timeOut(), 700);
+        // $('.card').off('click',this.card_clicked.bind(this));
+        $('.card').off('click');
+        setTimeout(()=>this.timeOut(), 500);
     }
     
     matchedCards(firstCard, secondCard){
@@ -133,7 +134,7 @@ class Game{
         $(this.second_card_clicked).find(".back").removeClass('hidden');
         this.first_card_clicked = null;
         this.second_card_clicked = null;
-        // $('.card').click(()=>this.card_clicked()); //re-attaches clickhandler to cards
+        $('.card').click(()=>this.card_clicked()); //re-attaches clickhandler to cards
     }
     display_stats() {
         $('.games-played > .value').text(this.games_played);
