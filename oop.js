@@ -33,8 +33,10 @@ class Game{
         
         this.backgroundMusic = new Audio('./sounds/theme.mp3');
         this.clickSound = new Audio('./sounds/sound.wav');
+        this.clickSound.volume = 0.55;
         this.matchedSound = new Audio('./sounds/matched.mp3');
-        // this.win = new Audio('win.mp3');
+        this.matchedSound.playbackRate = 1.5;
+        this.win = new Audio('./sounds/win.mp3');
         this.soundOn = true;
     }
     initialize(){
@@ -58,7 +60,7 @@ class Game{
     
     displayCards(array) {
         $('#game-area').empty();
-        // this.shuffleCardsArray(this.cardImages);
+        this.shuffleCardsArray(this.cardImages);
         this.gameArea = $('#game-area');
     
         for (var i = 0; i < array.length; i++) {
@@ -98,7 +100,7 @@ class Game{
                 if (this.match_counter === this.total_possible_matches) {
                     setTimeout(()=> {
                         this.showWinModal();
-                    }, 1000);
+                    }, 1800);
                 }
             } else { //if image sources do not match
                 this.mismatchedCards();
@@ -111,12 +113,14 @@ class Game{
     mismatchedCards(){
         this.soundOn ? this.clickSound.play() : null;
         this.accuracy = this.matches / this.attempts;
-        // $('.card').off('click',this.card_clicked.bind(this));
         $('.card').off('click');
-        setTimeout(()=>this.timeOut(), 500);
+        setTimeout(()=>this.timeOut(), 700);
     }
     
     matchedCards(firstCard, secondCard){
+        this.soundOn ? this.matchedSound.play() : null;
+        $('.card').off('click');
+        setTimeout(()=>this.timeOut(), 1800);
         firstCard.addClass('match');
         secondCard.addClass('match');
         firstCard.fadeOut(1000);
@@ -126,7 +130,6 @@ class Game{
         this.accuracy = this.matches / this.attempts;
         this.first_card_clicked = null;//reset first_card_clicked for future match comparisoin
         this.second_card_clicked = null;
-        this.soundOn ? this.matchedSound.play() : null;
     }
     
     timeOut() {
@@ -150,9 +153,12 @@ class Game{
         this.games_played += 1;
         this.display_stats();
         this.displayCards(this.cardImages);
-        $('.card').click(this.card_clicked.bind(this.backImage));
+        $('.card').click(()=>this.card_clicked());
+        this.win.pause();
+        this.win.currentTime = 0;
     }
     showWinModal(){
+        this.soundOn ? this.win.play() : null;
         this.modal = document.getElementById('winModal')
         this.span = document.getElementsByClassName("close")[0];
         this.modal.style.display = "block";//display modal
