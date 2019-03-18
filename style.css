@@ -1,9 +1,7 @@
 body {
-    height: 100vh;
     background: url(./images/background.jpg);
     background-size: cover;
     background-attachment: fixed;
-    overflow: hidden;
     background-repeat:no-repeat;
     background-position:center; /* white space before snapping */
 }
@@ -93,11 +91,10 @@ button:focus {
     display: flex;
     justify-content: center;
     width: 80%;
-    height: 74%;
+    height: 500px;
     flex-wrap: wrap;
     padding: 10px;
-    margin: auto;
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -176,9 +173,6 @@ button:focus {
     border-radius: 20px 20px;
     padding: 15px 0;
     bottom: 0;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
     font-family: 'Roboto Slab';
 }
 
@@ -247,10 +241,13 @@ button:focus {
 @media (max-width: 950px){
     #game-area {
         width: 95%;
-        bottom: 5%;
+        /* position: relative;
+        top: 30px; */
     }
     .stats-container {
         width: 95%;
+        position: relative;
+        top: 30px;
     }
     .cardContainer {
         width: 16.6666%;
@@ -306,10 +303,25 @@ button:focus {
     }
 }
 
+@media (max-width: 650px){
+    .cardContainer{
+        width: 29%;
+        height: 26%;
+    }
+    #game-area{
+        height: 370px;
+        width: 80%;
+    }
+    .stats-container{
+        position: relative;
+        top: 200px;
+    }
+}
+
 @media (max-width: 500px){
     #game-area {
         width: 90%;
-        height: 85%;
+        height: 550px;
     }
     .header{
         height: 7%;
@@ -370,9 +382,29 @@ button:focus {
     }
 }
 
+@media (max-width: 432px){
+    .stats-container{
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 320px){
+    #game-area {
+        width: 85%;
+        height: 450px;
+    }
+}
+
+
 @media (min-width: 400px) and (max-width: 499px) {
     #game-area {
         width: 85%;
+        height: 612px;
+    }
+    .stats-container{
+        position: relative;
+        top: 0px;
     }
 }
 
@@ -388,7 +420,7 @@ button:focus {
         /* bottom: -15px; */
     }
     #game-area {
-        height: 85%;
+        height: 525px;
     }
 }
 
@@ -403,11 +435,19 @@ button:focus {
 @media (width: 1024px) and (height: 1366px) {
     #game-area {
         width: 95%;
+        height: 900px;
+        margin: unset;
     }
-
     .cardContainer {
         width: 26%;
         height: 21%;
+    }
+    .stats-container{
+        bottom: 0;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        height: unset;
     }
 }
 
@@ -415,10 +455,38 @@ button:focus {
 @media (width: 768px) and (height: 1024px) {
     #game-area {
         width: 95%;
+        height: 540px;
+        position: relative;
+        top: 20px;
     }
-
     .cardContainer {
-        height: 18%;
+        width: 26%;
+    }
+    .stats-container{
+        bottom: 0;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        height: unset;
+    }
+}
+
+/*Kindle Fire X*/
+@media (width: 800px) and (height: 1280px) {
+    #game-area {
+        width: 95%;
+        top: 50px;
+        height: 650px;
+    }
+    .cardContainer {
+        width: 28.33%;
+    }
+    .stats-container{
+        bottom: 10px;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        height: unset;
     }
 }
 
@@ -426,6 +494,7 @@ button:focus {
 @media (width: 375px) and (height: 812px) {
     #game-area {
         width: 100%;
+        height: 694px;
     }
 
     .cardContainer {
