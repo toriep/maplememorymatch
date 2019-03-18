@@ -443,11 +443,9 @@ button:focus {
         height: 21%;
     }
     .stats-container{
-        left: 50%;
-        transform: translateX(-50%);
         height: 50px;
         position: relative;
-        top: 300px;
+        top: 240px;
     }
 }
 
