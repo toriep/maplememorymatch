@@ -37,13 +37,13 @@ class Game{
         this.matchedSound = new Audio('./sounds/matched.mp3');
         this.matchedSound.playbackRate = 1.5;
         this.win = new Audio('./sounds/win.mp3');
-        this.soundOn = true;
+        this.soundOn = false;
     }
     initialize(){
-        $('.music_play').click(()=>this.playBackgroundMusic());
-        $('.music_pause').click(()=>this.pauseBackgroundMusic());
-        $('.sound_play').click(()=>this.enableSoundEffects());
-        $('.sound_pause').click(()=>this.disableSoundEffects());
+        $('.music_play').click(()=>this.pauseBackgroundMusic());
+        $('.music_pause').click(()=>this.playBackgroundMusic());
+        $('.sound_play').click(()=>this.disableSoundEffects());
+        $('.sound_pause').click(()=>this.enableSoundEffects());
         this.displayCards(this.cardImages);
         $('.card').click(()=>this.card_clicked());
         $('button.reset').click(()=>this.reset_game());
@@ -175,26 +175,26 @@ class Game{
     }
     playBackgroundMusic() {
         this.backgroundMusic.play();
-        $('.music_play').addClass('hidden');
-        $('.music_pause').removeClass('hidden');
+        $('.music_pause').addClass('hidden');
+        $('.music_play').removeClass('hidden');
     };
     
     pauseBackgroundMusic() {
         this.backgroundMusic.pause();
-        $('.music_play').removeClass('hidden');
-        $('.music_pause').addClass('hidden');
+        $('.music_pause').removeClass('hidden');
+        $('.music_play').addClass('hidden');
     };
     
     disableSoundEffects(){
         this.soundOn = false;
-        $('.sound_play').removeClass('hidden');
-        $('.sound_pause').addClass('hidden');
+        $('.sound_pause').removeClass('hidden');
+        $('.sound_play').addClass('hidden');
     };
     
     enableSoundEffects(){
         this.soundOn = true;
-        $('.sound_play').addClass('hidden');
-        $('.sound_pause').removeClass('hidden');
+        $('.sound_pause').addClass('hidden');
+        $('.sound_play').removeClass('hidden');
     };
 }
 
