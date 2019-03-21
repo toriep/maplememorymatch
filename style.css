@@ -50,10 +50,6 @@ header {
     right: 3%;
 }
 
-.logo:hover{
-    cursor: pointer;
-}
-
 h1 {
     font-size: 3em;
     color: white;
@@ -116,17 +112,17 @@ button:focus {
     width: 90%;
     height: 90%;
     position: relative;
-}
-
-.card:hover {
-    transform: translateY(-5px);
     cursor: pointer;
 }
 
-.back:hover {
+/* .card:hover {
+    transform: translateY(-5px);
+} */
+
+/* .back:hover {
     box-shadow: 0 12px 6px 0px rgb(148, 148, 184, 0.9);
     transform: translateY(-5px);
-}
+} */
 
 .front {
     position: absolute;

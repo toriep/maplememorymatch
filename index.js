@@ -39,16 +39,18 @@ class Game{
         this.win = new Audio('./sounds/win.mp3');
         this.soundOn = false;
     }
+
     initialize(){
-        $('.music_play').click(()=>this.pauseBackgroundMusic());
-        $('.music_pause').click(()=>this.playBackgroundMusic());
-        $('.sound_play').click(()=>this.disableSoundEffects());
-        $('.sound_pause').click(()=>this.enableSoundEffects());
+        $('.music_play').click(() => this.pauseBackgroundMusic());
+        $('.music_pause').click(() => this.playBackgroundMusic());
+        $('.sound_play').click(() => this.disableSoundEffects());
+        $('.sound_pause').click(() => this.enableSoundEffects());
         this.displayCards(this.cardImages);
-        $('.card').click(()=>this.card_clicked());
-        $('button.reset').click(()=>this.reset_game());
+        $('.card').click(() => this.card_clicked());
+        $('button.reset').click(() => this.reset_game());
         this.display_stats(); //display stats so that stats boxes do not change size when the user starts playing
     }
+
     shuffleCardsArray(array) {
         for (var i = array.length - 1; i > 0; i--) {
             var newIndex = Math.floor(Math.random() * (i + 1));
@@ -57,7 +59,7 @@ class Game{
             array[newIndex] = temp;
         }
     }
-    
+
     displayCards(array) {
         $('#game-area').empty();
         this.shuffleCardsArray(this.cardImages);
@@ -78,11 +80,12 @@ class Game{
             this.gameArea.append(this.cardContainer);
         }
     };
+
     card_clicked() {
         //if card clicked has class of match, function doesn't run further
-        if ($(event.currentTarget).hasClass('match')) {
+        if ($(event.currentTarget).hasClass('match')){
             return;
-        }
+        };
         //else, find element with class of back and add class hidden
         $(event.currentTarget).find('.back').addClass('hidden');
         if (this.first_card_clicked === null) { //first card clicked
@@ -90,32 +93,32 @@ class Game{
             this.soundOn ? this.clickSound.play() : null;
         } else { //if first_card_clicked is not null, this is a the second card
             this.attempts += 1;
-            if (this.first_card_clicked === event.currentTarget) {//if user clicks on a front card twice
+            if (this.first_card_clicked === event.currentTarget){//if user clicks on a front card twice
                 return;//disable further card comparison
-            }
+            };
             this.second_card_clicked = event.currentTarget;
             //If second card's image source is the same as first's card image source
             if ($(this.first_card_clicked).find('.front img').attr('src') === $(this.second_card_clicked).find('.front img').attr('src')) {
                 this.matchedCards($(this.first_card_clicked),$(this.second_card_clicked));
                 if (this.match_counter === this.total_possible_matches) {
-                    setTimeout(()=> {
+                    setTimeout(() => {
                         this.showWinModal();
                     }, 1800);
                 }
             } else { //if image sources do not match
                 this.mismatchedCards();
-            }
+            };
             this.accuracy = Math.round(this.accuracy * 100) + "%";
-        }
+        };
        this.display_stats();
-    }
+    };
 
     mismatchedCards(){
         this.soundOn ? this.clickSound.play() : null;
         this.accuracy = this.matches / this.attempts;
         $('.card').off('click');
         setTimeout(()=>this.timeOut(), 700);
-    }
+    };
     
     matchedCards(firstCard, secondCard){
         this.soundOn ? this.matchedSound.play() : null;
@@ -130,7 +133,7 @@ class Game{
         this.accuracy = this.matches / this.attempts;
         this.first_card_clicked = null;//reset first_card_clicked for future match comparisoin
         this.second_card_clicked = null;
-    }
+    };
     
     timeOut() {
         $(this.first_card_clicked).find(".back").removeClass('hidden');
@@ -138,13 +141,15 @@ class Game{
         this.first_card_clicked = null;
         this.second_card_clicked = null;
         $('.card').click(()=>this.card_clicked()); //re-attaches clickhandler to cards
-    }
+    };
+
     display_stats() {
         $('.games-played > .value').text(this.games_played);
         $('.attempts > .value').text(this.attempts);
         $('.accuracy > .value').text(this.accuracy);
         $('.matches > .value').text(this.matches);
-    }
+    };
+
     reset_game() {
         this.accuracy = 0;
         this.matches = 0;
@@ -156,23 +161,26 @@ class Game{
         $('.card').click(()=>this.card_clicked());
         this.win.pause();
         this.win.currentTime = 0;
-    }
+    };
+
     showWinModal(){
+        this.pauseBackgroundMusic();
         this.soundOn ? this.win.play() : null;
-        this.modal = document.getElementById('winModal')
+        this.modal = document.getElementById('winModal');
         this.span = document.getElementsByClassName("close")[0];
         this.modal.style.display = "block";//display modal
         this.span.onclick = ()=> {//exit modal when click on x
             this.modal.style.display = "none";
             this.reset_game();
-        }
+        };
         window.onclick = (event)=> {//exit modal when click anywhere outside of modal
-              if (event.target == this.modal) {
-                  this.modal.style.display = "none";
-                  this.reset_game();
-              }
-        }  
-    }
+            if (event.target == this.modal){
+                this.modal.style.display = "none";
+                this.reset_game();
+            };
+        }  ;
+    };
+
     playBackgroundMusic() {
         this.backgroundMusic.play();
         $('.music_pause').addClass('hidden');
